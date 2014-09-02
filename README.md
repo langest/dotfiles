@@ -4,7 +4,9 @@ My dotfiles.
 bash
 ===
 git coloring output and autocompletion
+
 aliases
+
 go path
 
 Vim
