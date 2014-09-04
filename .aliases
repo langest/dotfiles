@@ -1,1 +1,2 @@
 alias pacmanclean='sudo pacman -Rns $(pacman -Qqtd)'
+alias mountusb='sudo mount -o gid=users,fmask=113,dmask=002'
