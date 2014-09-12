@@ -1,2 +1,20 @@
+#general
+alias shtd='sudo shutdown now'
+alias rbt='sudo reboot'
+
+#pacman
 alias pacmanclean='sudo pacman -Rns $(pacman -Qqtd)'
+
+#mount
 alias mountusb='sudo mount -o gid=users,fmask=113,dmask=002'
+alias umnt='sudo umount'
+
+#ssh
+alias ssh2kth='ssh -X langest@u-shell.csc.kth.se'
+
+#c++
+alias remake='make clean; make'
+
+#transmission
+alias starttransmission='sudo systemctl start transmission-daemon'
+alias stoptransmission='sudo systemctl stop transmission-daemon'
