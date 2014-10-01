@@ -1,7 +1,4 @@
-#general
-alias shtd='sudo shutdown now'
-alias rbt='sudo reboot'
-
+#!/bin/bash
 #pacman
 alias pacmanclean='sudo pacman -Rns $(pacman -Qqtd)'
 
@@ -12,9 +9,20 @@ alias umnt='sudo umount'
 #ssh
 alias ssh2kth='ssh -X langest@u-shell.csc.kth.se'
 
+#git
+alias status='git status'
+alias pull='git pull'
+alias push='git push'
+alias commit='git commit'
+alias diff='git diff'
+alias amend='git commit --amend'
+alias checkout='git checkout'
+alias merge='git merge'
+alias prune='git pull origin --prune'
+
 #c++
 alias remake='make clean; make'
 
 #transmission
-alias starttransmission='sudo systemctl start transmission-daemon'
-alias stoptransmission='sudo systemctl stop transmission-daemon'
+alias starttransmission='sudo transmission-daemon'
+alias stoptransmission='sudo transmission-remote --exit'
