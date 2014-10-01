@@ -6,12 +6,15 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+#prompt
 #PS1='[\u@\h \W]\$ ' # DEFAULT
 PS1='[\u@\h \W]\$ '
 
+#go
 export GOPATH=$HOME/programming/go
 export PATH=$PATH:$GOPATH/bin
 
+#source
 source ~/.aliases
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
