@@ -1,6 +1,8 @@
 #!/bin/bash
 #pacman
-alias pacmanclean='sudo pacman -Rns $(pacman -Qqtd)'
+#alias pacmanclean='sudo pacman -Rns $(pacman -Qqtd)'
+# '[r]emove [o]rphans' - recursively remove ALL orphaned packages
+alias pacro="/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/usr/bin/pacman -Qtdq | sed -e ':a;N;\$!ba;s/\n/ /g')"
 
 #mount
 alias mountusb='sudo mount -o gid=users,fmask=113,dmask=002'
@@ -14,7 +16,7 @@ alias status='git status'
 alias pull='git pull'
 alias push='git push'
 alias commit='git commit'
-alias diff='git diff' #I usually do not use the regular diff command so this is fine for me
+#alias diff='git diff' #cannot use this since I need the diff command
 alias amend='git commit --amend'
 alias checkout='git checkout'
 alias merge='git merge'
@@ -23,6 +25,9 @@ alias add='git add'
 
 #c++
 alias remake='make clean; make'
+
+#urxvt
+alias urxvtm='xrdb -merge ~/.Xresources'
 
 #transmission
 alias starttransmission='sudo transmission-daemon'
