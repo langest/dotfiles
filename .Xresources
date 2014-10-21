@@ -1,0 +1,52 @@
+*font: xft:DejaVu Sans Mono:size=10
+
+urxvt*foreground: #f2f2f2
+urxvt*background: #101010
+
+urxvt*color0:     #6c6c6c
+urxvt*color1:     #e9897c
+urxvt*color2:     #b6e77d
+urxvt*color3:     #ecebbe
+urxvt*color4:     #a9cdeb
+urxvt*color5:     #ea96eb
+urxvt*color6:     #c9caec
+urxvt*color7:     #f2f2f2
+
+urxvt*color8:     #747474
+urxvt*color9:     #f99286
+urxvt*color10:    #c3f786
+urxvt*color11:    #fcfbcc
+urxvt*color12:    #b6defb
+urxvt*color13:    #fba1fb
+urxvt*color14:    #d7d9fc
+urxvt*color15:    #e2e2e2
+
+URxvt*perl-ext-common: default,clipboard,matcher
+
+! url opener
+URxvt*url-launcher:    /usr/bin/firefox
+URxvt.matcher.button:  1
+
+! transparency
+URxvt*transparent: true
+URxvt*shading:     30
+
+! internal border
+URxvt.internalBorder:  8
+
+! scrollbar
+URxvt.scrollBar:   false
+
+! xterm-like ctrl+arrows work with vim
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+URxvt*iso14755:    False
+URxvt*iso14755_52: False
+
+! copy-paste
+URxvt.keysym.Control-V:   perl:clipboard:paste
+URxvt.keysym.Control-C:   perl:clipboard:copy
+
