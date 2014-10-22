@@ -15,7 +15,7 @@ fi
 eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 
 #Set bg
-feh --bg-scale /home/langest/images/4chan1week/2.jpg
+feh --bg-scale /home/langest/images/1412512447215.png
 
 #launch urxvt as daemon and load config
 urxvtd --quiet --opendisplay --fork
@@ -24,6 +24,9 @@ setxkbmap se
 
 #launch statusbar program
 go-dwmstatus &
+
+#launch conky
+conky &
 
 exec dwm
 #exec startxfce4
