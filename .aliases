@@ -27,7 +27,10 @@ alias add='git add'
 alias remake='make clean; make'
 
 #urxvt
-alias urxvtm='xrdb -merge ~/.Xresources'
+alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
+
+#wicd
+alias wicdcurses='wicd-curses'
 
 #transmission
 alias starttransmission='sudo transmission-daemon'
