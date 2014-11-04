@@ -30,8 +30,9 @@ filetype plugin indent on    " required
 set nu
 
 " COLOR
-set t_Co=256
-colorscheme wombat256mod
+set t_Co=16
+"set t_Co=256
+"colorscheme molokai
 
 " Ignore case when searching
 set ignorecase
