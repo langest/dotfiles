@@ -15,7 +15,7 @@ fi
 eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 
 #Set bg
-feh --bg-scale /home/langest/images/1412512447215.png
+feh --bg-fill /home/langest/images/wps/dogemoon.jpg
 
 #launch urxvt as daemon and load config
 urxvtd --quiet --opendisplay --fork
