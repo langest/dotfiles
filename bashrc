@@ -18,7 +18,7 @@ export PATH=$PATH:$GOPATH/bin
 export EYESTREAM=$GOPATH/src/github.com/maxnordlund/breamio
 
 #source
-source ~/.aliases
+source ~/dotfiles/aliases
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
 
