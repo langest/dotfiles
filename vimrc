@@ -30,9 +30,9 @@ filetype plugin indent on    " required
 set nu
 
 " COLOR
-set t_Co=16
-"set t_Co=256
-"colorscheme molokai
+"set t_Co=16
+set t_Co=256
+colorscheme ir_black
 
 " Ignore case when searching
 set ignorecase
@@ -52,3 +52,26 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=2
 set tabstop=2
+
+"Remove pgup pgdown
+noremap <PageUp> <NOP>
+noremap <PageDown> <NOP>
+inoremap <PageUp> <NOP>
+inoremap <PageDown> <NOP>
+
+"Break the habit of using arrowkeys for navigation
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+"Ignore arrowkeys in insert mode
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+"Break the habit of using hjkl for slow navigation, just for practice to.
+"Shall be in comment in the long run when the good habit has set.
+"noremap h <NOP>
+"noremap j <NOP>
+"noremap k <NOP>
+"noremap l <NOP>
