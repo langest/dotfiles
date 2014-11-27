@@ -14,6 +14,9 @@ PS1='[\u@\h \W]\$ '
 export GOPATH=$HOME/programming/go
 export PATH=$PATH:$GOPATH/bin
 
+#BreamIO
+export EYESTREAM=$GOPATH/src/github.com/maxnordlund/breamio
+
 #source
 source ~/.aliases
 source /usr/share/git/completion/git-completion.bash
