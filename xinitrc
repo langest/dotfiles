@@ -32,4 +32,3 @@ go-dwmstatus &
 /usr/bin/xset b off
 
 exec dwm
-#exec startxfce4
