@@ -26,7 +26,10 @@ setxkbmap se
 go-dwmstatus &
 
 #launch conky
-conky &
+#conky -d
+
+#disable beep
+/usr/bin/xset b off
 
 exec dwm
 #exec startxfce4
