@@ -30,7 +30,7 @@ alias remake='make clean; make'
 alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
 
 #wicd
-alias wicdcurses='wicd-curses'
+alias wicdc='wicd-curses'
 
 #transmission
 alias starttransmission='sudo transmission-daemon'
