@@ -4,6 +4,12 @@
 # '[r]emove [o]rphans' - recursively remove ALL orphaned packages
 alias pacro="/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/usr/bin/pacman -Qtdq | sed -e ':a;N;\$!ba;s/\n/ /g')"
 
+#change wp
+alias setwp='feh --bg-fill'
+
+#display terminal colors
+alias colors='sh ~/.colors.sh'
+
 #mount
 alias mountusb='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sudo umount'
