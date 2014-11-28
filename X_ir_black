@@ -1,0 +1,29 @@
+! ir_black WIP
+urxvt*background:  #000000
+urxvt*foreground:  #F2F2F2
+
+!black
+urxvt*color0:      #000000
+urxvt*color8:      #7C7C7C
+!red
+urxvt*color1:      #FF6C60
+urxvt*color9:      #FFB6B0
+!green (switched with cyan)
+urxvt*color2:      #C6C5FE
+urxvt*color10:     #DFDFFE
+!yellow
+urxvt*color3:      #FFFFB6
+urxvt*color11:     #FFFFCC
+!blue
+urxvt*color4:      #96CBFE
+urxvt*color12:     #B6DCFF
+!magenta
+urxvt*color5:      #FF73FD
+urxvt*color13:     #FF9CFE
+!cyan (switched with green)
+urxvt*color6:      #A8FF60
+urxvt*color14:     #CEFFAC
+!white
+urxvt*color7:      #EEEEEE
+urxvt*color15:     #FFFFFF
+

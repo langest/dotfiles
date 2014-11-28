@@ -1,0 +1,28 @@
+! My custom
+urxvt*background:  #2d2d2d
+urxvt*foreground:  #ececec
+
+!black
+urxvt*color0:      #222222
+urxvt*color8:      #444444
+!red
+urxvt*color1:      #ff8278
+urxvt*color9:      #ff8278
+!green
+urxvt*color2:      #bde077
+urxvt*color10:     #bde077
+!yellow
+urxvt*color3:      #eadc84
+urxvt*color11:     #eadc84
+!blue
+urxvt*color4:      #77bee0
+urxvt*color12:     #77bee0
+!magenta
+urxvt*color5:      #dd91f3
+urxvt*color13:     #dd91f3
+!cyan
+urxvt*color6:      #ffc178
+urxvt*color14:     #ffc178
+!white
+urxvt*color7:      #f5f5f5
+urxvt*color15:     #e5e5e5
