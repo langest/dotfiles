@@ -128,7 +128,7 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 "Break the habit of using hjkl for slow navigation, just for practice to.
 "Shall be in comment in the long run when the good habit has set.
-"noremap h <NOP>
-"noremap j <NOP>
-"noremap k <NOP>
-"noremap l <NOP>
+noremap h <NOP>
+noremap j <NOP>
+noremap k <NOP>
+noremap l <NOP>
