@@ -16,6 +16,7 @@ eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 
 #Set bg
 feh --bg-fill /home/langest/images/wps/dogemoon.jpg
+#feh --randomize --recursive --bg-fill images/wps/winter/
 
 #launch urxvt as daemon and load config
 urxvtd --quiet --opendisplay --fork
