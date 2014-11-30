@@ -10,6 +10,9 @@ alias ls='ls --color=auto'
 #PS1='[\u@\h \W]\$ ' # DEFAULT
 PS1='[\u@\h \W]\$ '
 
+#default editor
+export EDITOR='vim'
+
 #go
 export GOPATH=$HOME/programming/go
 export PATH=$PATH:$GOPATH/bin
