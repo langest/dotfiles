@@ -1,5 +1,5 @@
 !Color theme
-# include "/home/langest/dotfiles/X_ir_black"
+#include "/home/langest/dotfiles/X_hybrid"
 
 URxvt.font:     xft:Anonymous Pro:size=12:antialias=true
 URxvt.boldFont: xft:Anonymous Pro:bold:size=12:antialias=true
