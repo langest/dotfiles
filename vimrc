@@ -32,7 +32,8 @@ set nu
 " COLOR
 "set t_Co=16
 set t_Co=256
-colorscheme ir_black
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 
 " Ignore case when searching
 set ignorecase
