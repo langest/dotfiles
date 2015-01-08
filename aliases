@@ -33,6 +33,7 @@ alias add='git add'
 alias remake='make clean; make'
 
 #urxvt
+alias split='urxvtc'
 alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
 
 #wicd
