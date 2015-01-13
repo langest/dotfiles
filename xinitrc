@@ -27,7 +27,7 @@ setxkbmap se
 #go-dwmstatus &
 
 #launch conky
-#conky -d
+conky -d
 
 #disable beep
 /usr/bin/xset b off
