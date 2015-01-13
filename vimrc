@@ -29,6 +29,9 @@ filetype plugin indent on    " required
 " Enable line numbering
 set nu
 
+"set numberformat to always be in decimal
+set nrformats=
+
 " COLOR
 "set t_Co=16
 set t_Co=256
