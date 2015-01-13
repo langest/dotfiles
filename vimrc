@@ -33,7 +33,7 @@ set nu
 "set t_Co=16
 set t_Co=256
 let g:hybrid_use_Xresources = 1
-colorscheme hybrid
+colorscheme ir_black
 
 " Ignore case when searching
 set ignorecase
