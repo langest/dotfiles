@@ -32,4 +32,7 @@ conky -d
 #disable beep
 /usr/bin/xset b off
 
+#turn on numlock
+numlockx on
+
 exec dwm
