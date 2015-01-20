@@ -29,6 +29,10 @@ filetype plugin indent on    " required
 " Enable line numbering
 set nu
 
+" Reload files changed outside vim
+set autoread
+
+
 "set numberformat to always be in decimal
 set nrformats=
 
