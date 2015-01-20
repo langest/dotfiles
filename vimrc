@@ -56,10 +56,15 @@ set encoding=utf8
 
 " Be smart when using tabs ;)
 set smarttab
+set autoindent
 
 " 1 tab == 4 spaces
 set shiftwidth=2
 set tabstop=2
+set softtabstop=2
+
+" Do not wrap lines
+set nowrap
 
 " Highlight cursor line
 set cul
