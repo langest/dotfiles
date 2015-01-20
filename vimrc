@@ -70,8 +70,10 @@ set nowrap
 set cul
 hi CursorLine term=none cterm=none ctermbg=236
 
-" Always keep 5 lines from bottom/top
-set scrolloff=5
+" Always keep away from bottom/top
+set scrolloff=8
+set sidescrolloff=15
+set sidescroll=1
 
 " Write with sudo using w!!
 cmap w!! %!sudo tee > /dev/null %
