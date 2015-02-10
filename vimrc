@@ -69,8 +69,6 @@ hi CursorLine term=none cterm=none ctermbg=236
 
 " Always keep away from bottom/top
 set scrolloff=8
-set sidescrolloff=15
-set sidescroll=1
 
 " Write with sudo using w!!
 cmap w!! %!sudo tee > /dev/null %
