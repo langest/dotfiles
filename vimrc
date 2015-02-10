@@ -63,9 +63,6 @@ set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 
-" Do not wrap lines
-set nowrap
-
 " Highlight cursor line
 set cul
 hi CursorLine term=none cterm=none ctermbg=236
