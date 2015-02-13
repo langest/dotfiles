@@ -1,0 +1,82 @@
+######################
+# - Conky settings - #
+######################
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 2
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+format_human_readable
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+#xftfont Droid Sans:size=10
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+alignment top_left
+
+gap_y 9
+gap_x 20
+border_inner_margin 8
+
+#minimum_size 230 900
+#maximum_width 230
+#maximum_height 900
+
+#########################
+# - Graphics settings - #
+#########################
+draw_shades yes
+#default_shade_color 000000
+default_color FFFFFF
+
+TEXT
+#############
+# - CLOCK - #
+#############
+${color #d1e1e0}\
+
+${font Dimitri Swank:size=50}${time %H:%M}\
+${voffset -30}\
+${goto 190}${font Dimitri Swank:size=20}${time %A %d %b %Y}${font}\
+
+#Volume
+${goto 190}${font Dimitri Swank:size=25}Volume: ${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}
+#Battery
+${voffset -15}\
+${font Dimitri:size=14}\
+${if_existing /sys/class/power_supply/BAT0/present}\
+Battery status: ${battery_percent}%\
+${else}Battery: Not found${endif}
+External power: ${acpiacadapter}
+#######
+# MPD #
+#######
+${if_running mpd}\
+${font Dimitri Swank:size=20}Now $mpd_status:
+${voffset -9}${font Dimitri Swank:size=15}\
+$mpd_artist
+$mpd_title
+#${mpd_elapsed}/${mpd_length}
+${mpd_bar 15, 340}${font}
+${endif}
+###########
+# NETWORK #
+###########
+#${font Dimitri Swank:size=20}\
+#${if_up wlp3s0}Wireless
+#${font Dimitri Swank:size=26}${voffset 4}${goto 20}Local IP: ${addr wlp3s0}${font}\
+#${else} ${if_up enp12s0}Wired
+#${voffset 4}Local IP: ${addr enp12s0}\
+#${endif}${endif}
+#Public IP: ${execi 1200 curl http://ip.alt.io}${font}
