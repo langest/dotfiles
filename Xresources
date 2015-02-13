@@ -1,5 +1,5 @@
 !Color theme
-#include "/home/langest/dotfiles/X_ir_black"
+#include "/home/langest/dotfiles/X_mayhem"
 
 URxvt.font:     xft:Inconsolata:size=12:antialias=true
 URxvt.boldFont: xft:Inconsolata:bold:size=12:antialias=true
@@ -16,7 +16,7 @@ URxvt.matcher.button:  1
 
 ! transparency
 URxvt*transparent: true
-URxvt*shading:     35
+URxvt*shading:     25
 
 ! internal border
 URxvt.internalBorder:  8
