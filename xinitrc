@@ -15,7 +15,7 @@ fi
 eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 
 #Set bg
-feh --bg-fill /home/langest/currentwps/
+feh --randomize --bg-fill /home/langest/currentwps/
 #feh --randomize --recursive --bg-fill images/wps/winter/
 
 #launch urxvt as daemon and load config
