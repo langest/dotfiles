@@ -35,4 +35,6 @@ conky -d
 #turn on numlock
 numlockx on
 
+setxkbmap -option ctrl:nocaps       # Make Caps Lock a Control key
+
 exec dwm
