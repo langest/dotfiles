@@ -7,6 +7,9 @@ alias pacro="/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/
 #change wp
 alias setwp='feh --bg-fill'
 
+#watch images
+alias fehshow='feh -rzFD5'
+
 #display terminal colors
 alias colors='sh ~/.colors.sh'
 
