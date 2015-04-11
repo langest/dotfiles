@@ -1,5 +1,7 @@
 !Color theme
-#include "/home/langest/dotfiles/X_mayhem"
+#include "/home/langest/dotfiles/X_ir_black"
+
+Xcursor.theme: Menda-Cursor
 
 URxvt.font:     xft:Inconsolata:size=12:antialias=true
 URxvt.boldFont: xft:Inconsolata:bold:size=12:antialias=true
@@ -16,7 +18,7 @@ URxvt.matcher.button:  1
 
 ! transparency
 URxvt*transparent: true
-URxvt*shading:     25
+URxvt*shading:     70
 
 ! internal border
 URxvt.internalBorder:  8
