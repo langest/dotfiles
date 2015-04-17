@@ -24,7 +24,7 @@ xrdb - merge ~/.Xresources
 setxkbmap se
 
 #launch statusbar program
-go-dwmstatus &
+dwmstatus &
 
 #launch conky
 conky -d
