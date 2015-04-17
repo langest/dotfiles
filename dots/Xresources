@@ -1,5 +1,5 @@
 !Color theme
-#include "/home/langest/dotfiles/X_ir_black"
+#include "/home/langest/dotfiles/xcolor/X_ir_black"
 
 Xcursor.theme: Menda-Cursor
 
