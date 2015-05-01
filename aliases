@@ -41,6 +41,7 @@ alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
 
 #wicd
 alias wicdc='wicd-curses'
+alias wicdg='wicd-gtk --no-tray'
 alias wicd-gtk='wicd-gtk --no-tray'
 
 #transmission
