@@ -18,7 +18,7 @@ URxvt.matcher.button:  1
 
 ! transparency
 URxvt*transparent: true
-URxvt*shading:     70
+URxvt*shading:     30
 
 ! internal border
 URxvt.internalBorder:  8
