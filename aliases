@@ -1,3 +1,6 @@
+#ls default behaviour
+alias ls='ls --color=auto -h --group-directories-first'
+
 #!/bin/bash
 #pacman
 #alias pacmanclean='sudo pacman -Rns $(pacman -Qqtd)'
