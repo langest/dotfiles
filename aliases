@@ -51,8 +51,5 @@ alias wicd-gtk='wicd-gtk --no-tray'
 alias starttransmission='sudo transmission-daemon'
 alias stoptransmission='sudo transmission-remote --exit'
 
-#reinstall dwm
-alias reinstalldwm='cd ~/programming/dwm/dwm-6.0/ && sudo rm config.h && sudo make config.h && sudo make uninstall && sudo make install && cd'
-
 #gource
 alias gource='gource -i 0'
