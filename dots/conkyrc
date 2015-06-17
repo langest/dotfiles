@@ -79,3 +79,24 @@ ${endif}
 #${voffset 4}Local IP: ${addr enp12s0}\
 #${endif}${endif}
 #Public IP: ${execi 1200 curl http://ip.alt.io}${font}
+#
+#######
+# RSS #
+#######
+${font Inconsolata:bold:size=24}\
+Nytt
+${font Inconsolata:size=16}\
+${stippled_hr}
+${execi 1 curl http://bubb.la/rss/nyheter  | grep title |\
+sed -e :a -e 's/<[^>]*>//g;/</N' |\
+sed -e 's/[ \t]*//' |\
+sed -e 's/\(.*\)/ \1/' |\
+sed -e 's/\.//' |\
+sed -e 's/\"//' |\
+sed -e 's/\"//' |\
+sed '/^\s*$/d' |\
+sed 's/^/>>/' |\
+head -n $((5 + 1)) |\
+tail -n $((5)) |\
+fold -w 45 -s\
+}
