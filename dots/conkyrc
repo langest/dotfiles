@@ -36,15 +36,14 @@ border_inner_margin 8
 #########################
 # - Graphics settings - #
 #########################
-draw_shades yes
+draw_shades no
 #default_shade_color 000000
-default_color FFFFFF
+default_color 2D2D2D
 
 TEXT
 #############
 # - CLOCK - #
 #############
-${color #d1e1e0}\
 
 ${font Dimitri Swank:size=50}${time %H:%M}\
 ${voffset -30}\
