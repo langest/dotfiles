@@ -87,7 +87,7 @@ ${font Inconsolata:bold:size=24}\
 Nytt
 ${font Inconsolata:size=16}\
 ${stippled_hr}
-${execi 1 curl http://bubb.la/rss/nyheter  | grep title |\
+${execi 720 curl http://bubb.la/rss/nyheter  | grep title |\
 sed -e :a -e 's/<[^>]*>//g;/</N' |\
 sed -e 's/[ \t]*//' |\
 sed -e 's/\(.*\)/ \1/' |\
