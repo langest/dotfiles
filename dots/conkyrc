@@ -38,7 +38,7 @@ border_inner_margin 8
 #########################
 draw_shades no
 #default_shade_color 000000
-default_color D2D2D2
+default_color bbd5d2
 
 TEXT
 #############
@@ -67,7 +67,7 @@ ${voffset -9}${font Radio Space:size=15}\
 $mpd_artist
 $mpd_title
 #${mpd_elapsed}/${mpd_length}
-${mpd_bar 15, 340}${font}
+${mpd_bar 15, 340}${font}\
 ${endif}
 ###########
 # NETWORK #
@@ -83,8 +83,6 @@ ${endif}
 #######
 # RSS #
 #######
-${font Inconsolata:bold:size=24}\
-Nytt
 ${font Inconsolata:size=16}\
 ${stippled_hr}
 ${execi 720 curl http://bubb.la/rss/nyheter  | grep title |\
