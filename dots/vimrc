@@ -1,37 +1,11 @@
-" BEGIN Vundle
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" List all plugins here
-
-" vim-go
-Plugin 'fatih/vim-go'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" END Vundle
+" be iMproved, required
+set nocompatible
 
 " Enable line numbering
 set nu
 
 " Reload files changed outside vim
 set autoread
-
 
 "set numberformat to always be in decimal
 set nrformats=
@@ -54,9 +28,9 @@ syntax enable
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
-" Be smart when using tabs ;)
-set smarttab
+" Tab indention
 set autoindent
+set smartindent
 
 " 1 tab == 4 spaces
 set shiftwidth=2
@@ -77,6 +51,23 @@ cmap w!! %!sudo tee > /dev/null %
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
+
+" Remove trailing whitespace in the entire file
+function! <SID>StripTrailingWhitespaces()
+	Preparation: save last search, and cursor position.
+	let _s=@/
+	let l = line(".")
+	let c = col(".")
+	" Do the business:
+	%s/\s\+$//e
+	" Clean up: restore previous search history,
+	and cursor position
+	let @/=_s
+	call cursor(l, c)
+endfunction
+
+" Bind the removal of trailing whitespace to F5
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""
 "" Improved status line
