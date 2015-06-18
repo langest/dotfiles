@@ -38,22 +38,22 @@ border_inner_margin 8
 #########################
 draw_shades no
 #default_shade_color 000000
-default_color 2D2D2D
+default_color D2D2D2
 
 TEXT
 #############
 # - CLOCK - #
 #############
 
-${font Dimitri Swank:size=50}${time %H:%M}\
+${font Radio Space:size=50}${time %H:%M}\
 ${voffset -30}\
-${goto 190}${font Dimitri Swank:size=20}${time %A %d %b %Y}${font}\
+${goto 190}${font Radio Space:size=20}${time %A %d %b %Y}${font}\
 
 #Volume
-${goto 190}${font Dimitri Swank:size=25}Volume: ${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}
+${goto 190}${font Radio Space:size=25}Volume: ${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}
 #Battery
 ${voffset -15}\
-${font Dimitri:size=14}\
+${font Radio Space:size=14}\
 ${if_existing /sys/class/power_supply/BAT0/present}\
 Battery status: ${battery_percent}%\
 ${else}Battery: Not found${endif}
@@ -62,8 +62,8 @@ External power: ${acpiacadapter}
 # MPD #
 #######
 ${if_running mpd}\
-${font Dimitri Swank:size=20}Now $mpd_status:
-${voffset -9}${font Dimitri Swank:size=15}\
+${font Radio Space:size=20}Now $mpd_status:
+${voffset -9}${font Radio Space:size=15}\
 $mpd_artist
 $mpd_title
 #${mpd_elapsed}/${mpd_length}
@@ -72,9 +72,9 @@ ${endif}
 ###########
 # NETWORK #
 ###########
-#${font Dimitri Swank:size=20}\
+#${font Radio Space:size=20}\
 #${if_up wlp3s0}Wireless
-#${font Dimitri Swank:size=26}${voffset 4}${goto 20}Local IP: ${addr wlp3s0}${font}\
+#${font Radio Space:size=26}${voffset 4}${goto 20}Local IP: ${addr wlp3s0}${font}\
 #${else} ${if_up enp12s0}Wired
 #${voffset 4}Local IP: ${addr enp12s0}\
 #${endif}${endif}
