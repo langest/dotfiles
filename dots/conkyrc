@@ -1,7 +1,8 @@
 ######################
 # - Conky settings - #
 ######################
-update_interval 1
+update_interval 2
+update_interval_on_battery 4
 total_run_times 0
 net_avg_samples 1
 cpu_avg_samples 2
