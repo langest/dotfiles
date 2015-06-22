@@ -5,24 +5,24 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#prompt
-#PS1='[\u@\h \W]\$ ' # DEFAULT
+# prompt
+# PS1='[\u@\h \W]\$ ' # DEFAULT
 PS1='[\u@\h \W]\$ '
 
-#default editor
+# default editor
 export EDITOR='vim'
 
-#go
+# go
 export GOPATH=$HOME/programming/go
 export PATH=$PATH:$GOPATH/bin
 
-#BreamIO
+# BreamIO
 export EYESTREAM=$GOPATH/src/github.com/maxnordlund/breamio
 
-#Use vi-style key-bindings
+# Use vi-style key-bindings
 set -o vi
 
-#source
+# Source
 source ~/dotfiles/aliases
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
