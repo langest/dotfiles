@@ -47,6 +47,12 @@ set scrolloff=8
 " Write with sudo using w!!
 cmap w!! %!sudo tee > /dev/null %
 
+" Bubble text
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+
 " Return to old position when reopening files
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
