@@ -27,6 +27,9 @@ source ~/dotfiles/aliases
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
 
+# Better history
+export HISTCONTROL=ignoreboth:erasedups
+
 # Colored ManPages:
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
