@@ -67,7 +67,6 @@ ${font Radio Space:size=20}Now $mpd_status:
 ${voffset -9}${font Radio Space:size=15}\
 $mpd_artist
 $mpd_title
-#${mpd_elapsed}/${mpd_length}
 ${mpd_bar 15, 340}${font}\
 ${endif}
 ###########
