@@ -19,6 +19,9 @@ export PATH=$PATH:$GOPATH/bin
 #BreamIO
 export EYESTREAM=$GOPATH/src/github.com/maxnordlund/breamio
 
+#Use vi-style key-bindings
+set -o vi
+
 #source
 source ~/dotfiles/aliases
 source /usr/share/git/completion/git-completion.bash
