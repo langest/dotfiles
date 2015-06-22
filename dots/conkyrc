@@ -47,18 +47,18 @@ TEXT
 #############
 
 ${font Radio Space:size=50}${time %H:%M}\
-${voffset -30}\
-${goto 190}${font Radio Space:size=20}${time %A %d %b %Y}${font}\
+${voffset -30}
+${font Radio Space:size=20}${time %A %d %b %Y}${font}\
 
 #Volume
-${goto 190}${font Radio Space:size=25}Volume: ${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}
+${font Radio Space:size=25}Volume: ${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}
 #Battery
-${voffset -15}\
-${font Radio Space:size=14}\
-${if_existing /sys/class/power_supply/BAT0/present}\
-Battery status: ${battery_percent}%\
-${else}Battery: Not found${endif}
-External power: ${acpiacadapter}
+#${voffset -15}\
+#${font Radio Space:size=14}\
+#${if_existing /sys/class/power_supply/BAT0/present}\
+#Battery status: ${battery_percent}%\
+#${else}Battery: Not found${endif}
+#External power: ${acpiacadapter}
 #######
 # MPD #
 #######
