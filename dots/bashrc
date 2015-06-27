@@ -19,11 +19,6 @@ export PATH=$PATH:$GOPATH/bin
 # BreamIO
 export EYESTREAM=$GOPATH/src/github.com/maxnordlund/breamio
 
-# Use vi-style key-bindings
-set -o vi
-# Re-enable C-l to clear-screen
-bind -m vi-insert "\C-l":clear-screen
-
 # Source
 source ~/dotfiles/aliases
 source /usr/share/git/completion/git-completion.bash
