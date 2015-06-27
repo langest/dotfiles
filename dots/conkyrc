@@ -80,9 +80,45 @@ ${endif}
 #${endif}${endif}
 #Public IP: ${execi 1200 curl http://ip.alt.io}${font}
 #
-#######
-# RSS #
-#######
+############################
+# JAPANESE WORD OF THE DAY #
+############################
+${stippled_hr}
+${font WenQuanYi Zen Hei:size=16}\
+${execi 300 \
+curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
+grep title |\
+sed -e :a -e 's/<[^>^{CDATA}]*>//g;/</N' |\
+sed -e 's/.*\[//g;/</N' |\
+sed -e 's/\].*//g;/</N' |\
+sed -e 's/[ \t]*//' |\
+sed $'s/\r//' |\
+sed '/^\s*$/d' \
+}
+${execi 300 curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
+grep Part -A 2 -m 1 |\
+sed -e :a -e 's/<[^>]*>//g;/</N' |\
+sed -e 's/[ \t]*//' |\
+sed $'s/\r//' |\
+tr '\n' ' ' \
+}
+${execi 300 curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
+grep Example -m 1 |\
+sed -e :a -e 's/<[^>]*>//g;/</N' |\
+sed $'s/\r//' |\
+sed -e 's/[ \t]*//' |\
+sed 's/:/: /' \
+}
+${execi 300 curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
+grep Sentence -A 2 -m 1 |\
+sed -e :a -e 's/<[^>]*>//g;/</N' |\
+sed -e 's/[ \t]*//' |\
+sed $'s/\r//' |\
+tr '\n' ' ' \
+}
+##############
+# BUBBLA RSS #
+##############
 ${font Inconsolata:size=16}\
 ${stippled_hr}
 ${execi 300 curl http://bubb.la/rss/nyheter  | grep title |\
