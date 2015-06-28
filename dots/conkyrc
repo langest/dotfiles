@@ -100,17 +100,16 @@ tail -n 1
 ${stippled_hr}
 ${font WenQuanYi Zen Hei:size=13}\
 English Word of the Day
-${execi 12000  curl -s http://www.wordthink.com/feed/ |\
+${execi 12000 curl -s http://www.wordthink.com/feed/ |\
 grep -m 3 description |\
 sed -e :a -e 's/<[^>]*>//g;/</N' |\
 sed -e 's/]]>//g' |\
 sed -e 's/[ \t]*//' |\
 sed '/^\s*$/d' |\
-sed -e 's/\.//' |\
-sed -e 's/\"//' |\
-sed -e 's/\"//' |\
-sed -e 's/\&\#8220;/\"/g' |\
-sed -e 's/\&\#8221;/\"/g' |\
+sed -e 's/"//' |\
+sed -e 's/\&\#8220;/"/g' |\
+sed -e 's/\&\#8221;/"/g' |\
+sed 's/[0-9]/\n&/g' |\
 fold -w 50 -s \
 }
 ############################
