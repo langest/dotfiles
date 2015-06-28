@@ -81,6 +81,19 @@ ${endif}
 #${endif}${endif}
 #Public IP: ${execi 1200 curl http://ip.alt.io}${font}
 #
+###########################
+# SWEDISH WORD OF THE DAY #
+###########################
+${stippled_hr}
+${font WenQuanYi Zen Hei:size=16}\
+Dagens Svenska Ord
+${execi 12000 curl http://www.hpguiden.se/ |\
+grep -A 3 Dagens |\
+sed -e 's/<br>/: /g' |\
+sed -e :a -e 's/<[^>]*>//g;/</N' |\
+sed -e 's/[ \t]*//' |\
+tail -n 1
+}
 ############################
 # JAPANESE WORD OF THE DAY #
 ############################
