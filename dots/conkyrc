@@ -1,7 +1,7 @@
 ######################
 # - Conky settings - #
 ######################
-update_interval 2
+update_interval 0.8
 update_interval_on_battery 4
 total_run_times 0
 net_avg_samples 1
@@ -85,66 +85,64 @@ ${endif}
 # SWEDISH WORD OF THE DAY #
 ###########################
 ${stippled_hr}
-${font WenQuanYi Zen Hei:size=16}\
+${font WenQuanYi Zen Hei:size=13}\
 Dagens Svenska Ord
 ${execi 12000 curl http://www.hpguiden.se/ |\
-grep -A 3 Dagens |\
+grep -A 3 -m 1 Dagens |\
 sed -e 's/<br>/: /g' |\
 sed -e :a -e 's/<[^>]*>//g;/</N' |\
 sed -e 's/[ \t]*//' |\
 tail -n 1
 }
+###########################
+# ENGLISH WORD OF THE DAY #
+###########################
+${stippled_hr}
+${font WenQuanYi Zen Hei:size=13}\
+English Word of the Day
+${execi 12000  curl -s http://www.wordthink.com/feed/ |\
+grep -m 3 description |\
+sed -e :a -e 's/<[^>]*>//g;/</N' |\
+sed -e 's/]]>//g' |\
+sed -e 's/[ \t]*//' |\
+sed '/^\s*$/d' |\
+sed -e 's/\.//' |\
+sed -e 's/\"//' |\
+sed -e 's/\"//' |\
+sed -e 's/\&\#8220;/\"/g' |\
+sed -e 's/\&\#8221;/\"/g' |\
+fold -w 50 -s \
+}
 ############################
 # JAPANESE WORD OF THE DAY #
 ############################
 ${stippled_hr}
-${font WenQuanYi Zen Hei:size=16}\
-${execi 300 \
-curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
-grep title |\
-sed -e :a -e 's/<[^>^{CDATA}]*>//g;/</N' |\
-sed -e 's/.*\[//g;/</N' |\
-sed -e 's/\].*//g;/</N' |\
-sed -e 's/[ \t]*//' |\
-sed $'s/\r//' |\
-sed '/^\s*$/d' \
-}
-${execi 300 curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
-grep Part -A 2 -m 1 |\
+${font WenQuanYi Zen Hei:size=13}\
+Japanese Word of the Day
+${execi 12000  curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
+grep Part -A 8 -m 1 |\
 sed -e :a -e 's/<[^>]*>//g;/</N' |\
 sed -e 's/[ \t]*//' |\
 sed $'s/\r//' |\
-tr '\n' ' ' \
-}
-${execi 300 curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
-grep Example -m 1 |\
-sed -e :a -e 's/<[^>]*>//g;/</N' |\
-sed $'s/\r//' |\
-sed -e 's/[ \t]*//' |\
-sed 's/:/: /' \
-}
-${execi 300 curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
-grep Sentence -A 2 -m 1 |\
-sed -e :a -e 's/<[^>]*>//g;/</N' |\
-sed -e 's/[ \t]*//' |\
-sed $'s/\r//' |\
-tr '\n' ' ' \
+tr -s '\n' |\
+sed ':a;N;$!ba;s/:\n/:/g' |\
+sed 's/:/: /g'\
 }
 ##############
 # BUBBLA RSS #
 ##############
-${font Inconsolata:size=16}\
-${stippled_hr}
-${execi 300 curl http://bubb.la/rss/nyheter  | grep title |\
-sed -e :a -e 's/<[^>]*>//g;/</N' |\
-sed -e 's/[ \t]*//' |\
-sed -e 's/\(.*\)/ \1/' |\
-sed -e 's/\.//' |\
-sed -e 's/\"//' |\
-sed -e 's/\"//' |\
-sed '/^\s*$/d' |\
-sed 's/^/>>/' |\
-head -n $((4 + 1)) |\
-tail -n $((4)) |\
-fold -w 45 -s\
-}
+#${font Inconsolata:size=16}\
+#${stippled_hr}
+#${execi 300 curl http://bubb.la/rss/nyheter  | grep title |\
+#sed -e :a -e 's/<[^>]*>//g;/</N' |\
+#sed -e 's/[ \t]*//' |\
+#sed -e 's/\(.*\)/ \1/' |\
+#sed -e 's/\.//' |\
+#sed -e 's/\"//' |\
+#sed -e 's/\"//' |\
+#sed '/^\s*$/d' |\
+#sed 's/^/>>/' |\
+#head -n $((4 + 1)) |\
+#tail -n $((4)) |\
+#fold -w 45 -s\
+#}
