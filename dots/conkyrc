@@ -116,6 +116,16 @@ fold -w 50 -s \
 # JAPANESE WORD OF THE DAY #
 ############################
 ${stippled_hr}
+${execi 12000 \
+curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
+grep title |\
+sed -e :a -e 's/<[^>^{CDATA}]*>//g;/</N' |\
+sed -e 's/.*\[//g;/</N' |\
+sed -e 's/\].*//g;/</N' |\
+sed -e 's/[ \t]*//' |\
+sed $'s/\r//' |\
+sed '/^\s*$/d' \
+}
 ${font WenQuanYi Zen Hei:size=13}\
 Japanese Word of the Day
 ${execi 12000  curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
