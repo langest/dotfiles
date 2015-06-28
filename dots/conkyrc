@@ -67,7 +67,8 @@ ${font Radio Space:size=20}Now $mpd_status:
 ${voffset -9}${font Radio Space:size=15}\
 $mpd_artist
 $mpd_title
-${mpd_bar 15, 340}${font}\
+${voffset 6}\
+${mpd_bar 10, 340}${font}\
 ${endif}
 ###########
 # NETWORK #
@@ -130,7 +131,7 @@ sed -e 's/\"//' |\
 sed -e 's/\"//' |\
 sed '/^\s*$/d' |\
 sed 's/^/>>/' |\
-head -n $((5 + 1)) |\
-tail -n $((5)) |\
+head -n $((4 + 1)) |\
+tail -n $((4)) |\
 fold -w 45 -s\
 }
