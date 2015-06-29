@@ -87,7 +87,7 @@ ${endif}
 ${font WenQuanYi Zen Hei:size=13}\
 ${stippled_hr}
 Dagens Svenska Ord
-${execi 12000 curl http://www.hpguiden.se/ |\
+${exec curl http://www.hpguiden.se/ |\
 grep -A 3 -m 1 "Dagens ord" |\
 sed -e 's/<br>/: /g' |\
 sed -e :a -e 's/<[^>]*>//g;/</N' |\
@@ -100,7 +100,7 @@ tail -n 1 \
 ${stippled_hr}
 ${font WenQuanYi Zen Hei:size=13}\
 English Word of the Day
-${execi 12000 curl -s http://www.wordthink.com/feed/ |\
+${exec curl -s http://www.wordthink.com/feed/ |\
 grep -m 3 description |\
 sed -e :a -e 's/<[^>]*>//g;/</N' |\
 sed -e 's/]]>//g' |\
@@ -116,7 +116,7 @@ fold -w 50 -s \
 # JAPANESE WORD OF THE DAY #
 ############################
 ${stippled_hr}
-${execi 12000 \
+${exec \
 curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
 grep title |\
 sed -e :a -e 's/<[^>^{CDATA}]*>//g;/</N' |\
@@ -128,7 +128,7 @@ sed '/^\s*$/d' \
 }
 ${font WenQuanYi Zen Hei:size=13}\
 Japanese Word of the Day
-${execi 12000  curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
+${exec curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
 grep Part -A 8 -m 1 |\
 sed -e :a -e 's/<[^>]*>//g;/</N' |\
 sed -e 's/[ \t]*//' |\
