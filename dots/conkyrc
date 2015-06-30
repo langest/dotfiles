@@ -73,17 +73,6 @@ ${mpd_bar 10, 340}${font}\
 #does not affect the rest of the information displayed.
 ${voffset -39}\
 ${endif}
-###########
-# NETWORK #
-###########
-#${font Radio Space:size=20}\
-#${if_up wlp3s0}Wireless
-#${font Radio Space:size=26}${voffset 4}${goto 20}Local IP: ${addr wlp3s0}${font}\
-#${else} ${if_up enp12s0}Wired
-#${voffset 4}Local IP: ${addr enp12s0}\
-#${endif}${endif}
-#Public IP: ${execi 1200 curl http://ip.alt.io}${font}
-#
 #Set the voffset so all the Words of the Day
 #align somewhat with the bottom of my monitor.
 ${voffset 271}
