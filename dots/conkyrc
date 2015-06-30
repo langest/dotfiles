@@ -69,6 +69,7 @@ $mpd_artist
 $mpd_title
 ${voffset 6}\
 ${mpd_bar 10, 340}${font}\
+${voffset -39}\
 ${endif}
 ###########
 # NETWORK #
@@ -81,11 +82,11 @@ ${endif}
 #${endif}${endif}
 #Public IP: ${execi 1200 curl http://ip.alt.io}${font}
 #
+${voffset 271}
 ###########################
 # SWEDISH WORD OF THE DAY #
 ###########################
 ${font WenQuanYi Zen Hei:size=13}\
-${stippled_hr}
 Dagens Svenska Ord
 ${execi 12000 curl http://www.hpguiden.se/ |\
 grep -A 3 -m 1 "Dagens ord" |\
