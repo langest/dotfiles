@@ -69,6 +69,8 @@ $mpd_artist
 $mpd_title
 ${voffset 6}\
 ${mpd_bar 10, 340}${font}\
+#Set voffset so that showing the mpd information
+#does not affect the rest of the information displayed.
 ${voffset -39}\
 ${endif}
 ###########
@@ -82,6 +84,8 @@ ${endif}
 #${endif}${endif}
 #Public IP: ${execi 1200 curl http://ip.alt.io}${font}
 #
+#Set the voffset so all the Words of the Day
+#align somewhat with the bottom of my monitor.
 ${voffset 271}
 ###########################
 # SWEDISH WORD OF THE DAY #
