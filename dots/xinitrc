@@ -27,7 +27,7 @@ setxkbmap se
 dwmstatus &
 
 #launch conky
-conky -d
+conky -d -p 5 &
 
 #disable beep
 /usr/bin/xset b off
