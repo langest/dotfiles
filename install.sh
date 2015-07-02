@@ -1,11 +1,13 @@
 #!/bin/bash
 TOOLS="vim git"
 LANGS="go"
+echo    # move to a new line
 echo '=== Making sure the system is up to date ==='
-sleep 1
-pacman -Syu
+echo '===     running "sudo pacman -Syu"       ==='
+sudo pacman -Syu
 
+echo    # move to a new line
 echo '=== Starting to install useful programs ==='
-sleep 1
-pacman -S $TOOLS $LANGS
+echo '===      running "sudo pacman -S"       ==='
+sudo pacman -S $TOOLS $LANGS
 echo 'Done'
