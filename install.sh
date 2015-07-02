@@ -1,5 +1,7 @@
 #!/bin/bash
+XORG="xorg-server xorg-server-utils xorg-xinit"
 TOOLS="vim git"
+PROG="conky mpd ncmpcpp firefox"
 LANGS="go"
 echo    # move to a new line
 echo '=== Making sure the system is up to date ==='
@@ -9,7 +11,10 @@ sudo pacman -Syu
 echo    # move to a new line
 echo '=== Starting to install useful programs ==='
 echo '===      running "sudo pacman -S"       ==='
-sudo pacman -S $TOOLS $LANGS
+echo 'The programs are:'
+echo $XORG $TOOLS $PROG $LANGS
+echo    # move to a new line
+sudo pacman -S $XORG $TOOLS $PROG $LANGS
 
 echo    # move to a new line
 echo '=== Installing dwm ==='
