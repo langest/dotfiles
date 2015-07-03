@@ -1,5 +1,5 @@
 #!/bin/bash
-XORG="xorg-server xorg-server-utils xorg-xinit"
+BASIC="xorg-server xorg-server-utils xorg-xinit alsa-utils wicd"
 TOOLS="vim git"
 PROG="conky mpd ncmpcpp firefox"
 LANGS="go"
@@ -9,12 +9,16 @@ echo '===     running "sudo pacman -Syu"       ==='
 sudo pacman -Syu
 
 echo    # move to a new line
+echo '=== Installing the basics ==='
+sudo pacman -S $BASIC
+
+echo    # move to a new line
 echo '=== Starting to install useful programs ==='
 echo '===      running "sudo pacman -S"       ==='
 echo 'The programs are:'
-echo $XORG $TOOLS $PROG $LANGS
+echo $TOOLS $PROG $LANGS
 echo    # move to a new line
-sudo pacman -S $XORG $TOOLS $PROG $LANGS
+sudo pacman -S $TOOLS $PROG $LANGS
 
 echo    # move to a new line
 echo '=== Installing dwm ==='
@@ -23,7 +27,6 @@ while [[ $REPLY =~ ^[^YyNn]$ ]]
 do
 	read -n 1 -r
 done
-
 echo    # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
