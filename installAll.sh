@@ -9,6 +9,18 @@ echo '===     running "sudo pacman -Syu"       ==='
 sudo pacman -Syu
 
 echo    # move to a new line
+read -p "is xf86-video-intel an apropriate graphics dirver? [YyNn]" -n 1 -r
+while [[ $REPLY =~ ^[^YyNn]$ ]]
+do
+	read -n 1 -r
+done
+echo    # move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	sudo pacman -S xf86-video-intel
+fi
+
+echo    # move to a new line
 echo '=== Installing the basics ==='
 sudo pacman -S $BASIC
 
