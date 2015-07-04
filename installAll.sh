@@ -1,7 +1,7 @@
 #!/bin/bash
 BASIC="xorg-server xorg-server-utils xorg-xinit alsa-utils wicd"
-TOOLS="vim git"
-PROG="conky mpd ncmpcpp firefox"
+TOOLS="vim tmux git"
+PROG="conky slim mpd ncmpcpp firefox"
 LANGS="go"
 echo    # move to a new line
 echo '=== Making sure the system is up to date ==='
