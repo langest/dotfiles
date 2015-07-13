@@ -16,6 +16,9 @@ export EDITOR='vim'
 export GOPATH=$HOME/programming/go
 export PATH=$PATH:$GOPATH/bin
 
+# ruby gems
+export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
+
 # BreamIO
 export EYESTREAM=$GOPATH/src/github.com/maxnordlund/breamio
 
