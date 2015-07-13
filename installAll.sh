@@ -8,7 +8,7 @@ echo    # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-	BASIC="xorg-server xorg-server-utils xorg-xinit alsa-utils wicd"
+	BASIC="xorg-server xorg-server-utils xorg-xinit alsa-utils wicd ttf-dejavu ttf-inconsolata ttf-symbola"
 	TOOLS="vim tmux git"
 	PROG="conky slim mpd ncmpcpp firefox vlc livestreamer"
 	LANGS="go ghc"
