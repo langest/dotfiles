@@ -58,4 +58,15 @@ then
 	sudo make -C $HOME/programming/c/dwm install
 fi
 
+read -p "Install dotfiles placing the old ones in $HOME/old_dotfiles? [YyNn]" -n 1 -r
+while [[ $REPLY =~ ^[^YyNn]$ ]]
+do
+	read -n 1 -r
+done
+echo    # move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	python2 installDots.py
+fi
+
 echo 'Done'
