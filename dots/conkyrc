@@ -126,7 +126,8 @@ sed -e 's/.*\[//g;/</N' |\
 sed -e 's/\].*//g;/</N' |\
 sed -e 's/[ \t]*//' |\
 sed $'s/\r//' |\
-sed '/^\s*$/d' \
+sed '/^\s*$/d' |\
+fold -w 50 -s \
 }
 ${execi 12000 curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
 grep Part -A 8 -m 1 |\
@@ -135,7 +136,8 @@ sed -e 's/[ \t]*//' |\
 sed $'s/\r//' |\
 tr -s '\n' |\
 sed ':a;N;$!ba;s/:\n/:/g' |\
-sed 's/:/: /g'\
+sed 's/:/: /g' |\
+fold -w 50 -s \
 }
 ##############
 # BUBBLA RSS #
