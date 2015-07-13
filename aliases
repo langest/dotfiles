@@ -35,6 +35,9 @@ alias merge='git merge'
 alias prune='git pull origin --prune'
 alias add='git add'
 
+#jekyll
+alias 'jekyll-serve'='jekyll serve --baseurl ""'
+
 #c++
 alias remake='make clean; make'
 
