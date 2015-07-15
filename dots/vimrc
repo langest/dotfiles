@@ -48,6 +48,10 @@ set scrolloff=8
 cmap w!! %!sudo tee > /dev/null %
 
 " Bubble text
+nmap <C-k> ddkP
+nmap <C-j> ddp
+vmap <C-k> xkP`[V`]
+vmap <C-j> xp`[V`]
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
 vmap <C-Up> xkP`[V`]
