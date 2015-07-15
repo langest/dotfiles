@@ -48,15 +48,15 @@ TEXT
 # - CLOCK - #
 #############
 
-${font Radio Space:size=50}${time %H:%M}\
+${font Lato Hairline:size=50}${time %H:%M}\
 ${voffset -30}
-${font Radio Space:size=20}${time %A %d %b %Y}${font}\
+${font Lato Hairline:size=30}${time %A %d %b %Y}${font}\
 
 #Volume
-${font Radio Space:size=25}Volume: ${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}
+${font Lato Hairline:size=30}Volume: ${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}
 #Battery
 #${voffset -15}\
-#${font Radio Space:size=14}\
+#${font Lato Hairline:size=14}\
 #${if_existing /sys/class/power_supply/BAT0/present}\
 #Battery status: ${battery_percent}%\
 #${else}Battery: Not found${endif}
@@ -65,8 +65,8 @@ ${font Radio Space:size=25}Volume: ${exec amixer get Master -M | grep -oE "[[:di
 # MPD #
 #######
 ${if_running mpd}\
-${font Radio Space:size=20}Now $mpd_status:
-${voffset -9}${font Radio Space:size=15}\
+${font Lato Hairline:size=20}Now $mpd_status:
+${voffset -9}${font Lato Hairline:size=15}\
 $mpd_artist
 $mpd_title
 ${voffset 6}\
