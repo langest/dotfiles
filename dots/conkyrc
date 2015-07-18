@@ -89,7 +89,7 @@ sed -e 's/<br>/: /g' |\
 sed -e :a -e 's/<[^>]*>//g;/</N' |\
 sed -e 's/[ \t]*//' |\
 tail -n 1 |\
-fold -w 50 -s \
+fold -w 54 -s \
 }
 ###########################
 # ENGLISH WORD OF THE DAY #
@@ -110,7 +110,7 @@ sed -e 's/\&\#8220;/"/g' |\
 sed -e 's/\&\#8221;/"/g' |\
 sed 's/[0-9]\./\n&/g' |\
 tr -s ' ' |\
-fold -w 50 -s \
+fold -w 54 -s \
 }
 ############################
 # JAPANESE WORD OF THE DAY #
@@ -126,8 +126,8 @@ sed -e 's/.*\[//g;/</N' |\
 sed -e 's/\].*//g;/</N' |\
 sed -e 's/[ \t]*//' |\
 sed $'s/\r//' |\
-sed '/^\s*$/d' |\
-fold -w 50 -s \
+fold -w 54 -s |\
+sed '/^\s*$/d' \
 }
 ${execi 12000 curl https://feeds.feedblitz.com/japanese-word-of-the-day |\
 grep Part -A 8 -m 1 |\
@@ -137,7 +137,8 @@ sed $'s/\r//' |\
 tr -s '\n' |\
 sed ':a;N;$!ba;s/:\n/:/g' |\
 sed 's/:/: /g' |\
-fold -w 50 -s \
+fold -w 54 -s |\
+sed '/^\s*$/d' \
 }
 ##############
 # BUBBLA RSS #
