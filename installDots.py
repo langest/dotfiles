@@ -20,7 +20,7 @@ def linkFiles(mypath, files):
 
 	elif not os.path.isdir(oldDir):
 		# Abort, a non-directory
-		print "Non-directory %s does already exists, please rename"%(oldDir)
+		print ("Non-directory %s does already exists, please rename"%(oldDir))
 		return
 
 	for f in files:
@@ -31,14 +31,14 @@ def linkFiles(mypath, files):
 			# Move file to oldDir
 			shutil.move(dst, os.path.join(oldDir, f))
 
-                elif os.path.exists(dst) and os.path.isdir(dst):
-		    print "Directory %s does already exists, please rename"%(dst)
-                    print "Skipping %s"%(dst)
-                    continue
+		elif os.path.exists(dst) and os.path.isdir(dst):
+			print ("Directory %s does already exists, please rename"%(dst))
+			print ("Skipping %s"%(dst))
+			continue
 
-                cmd = "ln -s %s %s"%(src, dst)
-                print cmd
-                os.system(cmd)
+		cmd = "ln -s %s %s"%(src, dst)
+		print (cmd)
+		os.system(cmd)
 
 if __name__ == "__main__":
 	mypath = os.path.abspath("./dots/")
