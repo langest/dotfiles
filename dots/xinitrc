@@ -37,4 +37,7 @@ numlockx on
 
 setxkbmap -option ctrl:nocaps       # Make Caps Lock a Control key
 
+#Play a pretty sound on startup
+cvlc --vout none Downloads/Microsoft\ Windows\ XP\ Startup\ Sound.mp3 --play-and-exit &
+
 exec dwm
