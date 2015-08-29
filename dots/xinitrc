@@ -11,6 +11,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
+#Play a pretty sound on startup
+cvlc --vout none Downloads/Microsoft\ Windows\ XP\ Startup\ Sound.mp3 --play-and-exit &
+
 # launch agent
 eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 
@@ -36,8 +39,5 @@ dwmstatus &
 numlockx on
 
 setxkbmap -option ctrl:nocaps       # Make Caps Lock a Control key
-
-#Play a pretty sound on startup
-cvlc --vout none Downloads/Microsoft\ Windows\ XP\ Startup\ Sound.mp3 --play-and-exit &
 
 exec dwm
