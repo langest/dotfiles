@@ -79,6 +79,17 @@ endfunction
 " Bind the removal of trailing whitespace to F5
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
+""""""""""""""""""""
+" Haskell settings "
+""""""""""""""""""""
+" Tab specific option
+au BufEnter *.hs set tabstop=2     "A tab is 2 spaces
+au BufEnter *.hs set expandtab     "Always uses spaces instead of tabs
+au BufEnter *.hs set softtabstop=2 "Insert 2 spaces when tab is pressed
+au BufEnter *.hs set shiftwidth=2  "An indent is 2 spaces
+au BufEnter *.hs set shiftround    "Round indent to nearest shiftwidth multiple
+
+
 """""""""""""""""""""""""""""""""""""""""""
 "" Improved status line
 set laststatus=2
