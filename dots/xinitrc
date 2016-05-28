@@ -17,6 +17,8 @@ cvlc --vout none Downloads/Microsoft\ Windows\ XP\ Startup\ Sound.mp3 --play-and
 # launch agent
 eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 
+redshift -O 5350
+
 #Set bg
 feh --randomize --recursive --bg-fill /home/langest/currentwps/
 #feh --randomize --recursive --bg-fill images/wps/winter/

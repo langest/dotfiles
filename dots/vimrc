@@ -14,7 +14,7 @@ set nrformats=
 "set t_Co=16
 set t_Co=256
 let g:hybrid_use_Xresources = 1
-colorscheme ir_black
+colorscheme molokai
 
 " Ignore case when searching
 set ignorecase
@@ -83,10 +83,10 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 " Haskell settings "
 """"""""""""""""""""
 " Tab specific option
-au BufEnter *.hs set tabstop=2     "A tab is 2 spaces
+au BufEnter *.hs set tabstop=4     "A tab is 4 spaces
 au BufEnter *.hs set expandtab     "Always uses spaces instead of tabs
-au BufEnter *.hs set softtabstop=2 "Insert 2 spaces when tab is pressed
-au BufEnter *.hs set shiftwidth=2  "An indent is 2 spaces
+au BufEnter *.hs set softtabstop=4 "Insert 4 spaces when tab is pressed
+au BufEnter *.hs set shiftwidth=4  "An indent is 2 spaces
 au BufEnter *.hs set shiftround    "Round indent to nearest shiftwidth multiple
 
 
@@ -132,6 +132,8 @@ au InsertLeave * hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen cterm
 " /Improved status line
 """"""""""""""""""""""""""""""""""""""""
 
+"Remove Ex mode
+noremap Q <NOP>
 "Remove pgup pgdown
 noremap <PageUp> <NOP>
 noremap <PageDown> <NOP>

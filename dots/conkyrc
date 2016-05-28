@@ -77,7 +77,7 @@ ${voffset -39}\
 ${endif}
 #Set the voffset so all the Words of the Day
 #align somewhat with the bottom of my monitor.
-${voffset 271}
+${voffset 210}
 ###########################
 # SWEDISH WORD OF THE DAY #
 ###########################
