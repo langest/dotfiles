@@ -1,0 +1,16 @@
+refresh-on-startup yes
+
+search-highlight-colors black red
+
+color background        white default
+color listnormal        white default
+color listfocus         black white  
+color listnormal_unread red   default
+color listfocus_unread  red   white
+color info              red   default
+color article           white default
+
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
