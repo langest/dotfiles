@@ -20,7 +20,7 @@ eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 redshift -O 5350
 
 #Set bg
-feh --randomize --recursive --bg-fill /home/langest/currentwps/
+feh --randomize --recursive --bg-fill /home/langest/currentWps/
 #feh --randomize --recursive --bg-fill images/wps/winter/
 
 #launch urxvt as daemon and load config
