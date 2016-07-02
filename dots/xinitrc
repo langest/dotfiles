@@ -42,4 +42,4 @@ numlockx on
 
 setxkbmap -option ctrl:nocaps       # Make Caps Lock a Control key
 
-exec dwm
+exec i3
