@@ -8,9 +8,9 @@ echo    # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-	BASIC="xorg-server xorg-server-utils xorg-xinit alsa-utils wicd ttf-dejavu ttf-inconsolata ttf-symbola"
-	TOOLS="vim tmux git rxvt-unicod urxvt-perls"
-	PROG="conky slim mpd ncmpcpp firefox vlc livestreamer"
+	BASIC="xorg-server xorg-server-utils xorg-xinit libxft alsa-utils wicd ttf-dejavu ttf-inconsolata ttf-symbola gtk-engine-murrine"
+	TOOLS="vim tmux git rxvt-unicode urxvt-perls ranger mesa-demos openssh"
+	PROG="conky feh slim mpd mpc ncmpcpp firefox thunderbird vlc livestreamer evince"
 	LANGS="go ghc"
 	echo    # move to a new line
 	echo '=== Making sure the system is up to date ==='
