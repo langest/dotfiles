@@ -9,7 +9,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
 	BASIC="xorg-server xorg-server-utils xorg-xinit libxft alsa-utils wicd ttf-dejavu ttf-inconsolata ttf-symbola gtk-engine-murrine"
-	TOOLS="vim tmux git rxvt-unicode urxvt-perls ranger mesa-demos openssh"
+	TOOLS="vim tmux git rxvt-unicode urxvt-perls ranger mesa-demos openssh xarchiver unzip unrar p7zip"
 	PROG="conky feh slim mpd mpc ncmpcpp firefox thunderbird vlc livestreamer evince"
 	LANGS="go ghc"
 	echo    # move to a new line
