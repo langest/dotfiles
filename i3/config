@@ -39,6 +39,12 @@ assign [class="Firefox"] 9:九
 bindsym $mod+Shift+t exec thunderbird
 assign [class="Thunderbird"] 8:八
 bindsym $mod+Shift+w exec --no-startup-id feh --randomize --recursive --bg-fill /home/langest/currentWps/
+bindsym $network exec wicd-gtk --no-tray
+
+# volume
+bindsym $volInc exec amixer set Master unmute 2+ -M
+bindsym $volDec exec amixer set Master unmute 2- -M
+bindsym $volSil exec amixer set Master 0%
 
 # ncmpscpp
 bindsym $nextSong exec mpc next
