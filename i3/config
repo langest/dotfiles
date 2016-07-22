@@ -124,6 +124,30 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Window Colours
+set $base00 #101218
+set $base01 #2f343f
+set $base02 #252936
+set $base03 #7780a1
+set $base04 #c0c5ce
+set $base05 #d1d4e0
+set $base06 #c9ccdb
+set $base07 #ffffff
+set $base08 #cf6a4c
+set $base09 #f99170
+set $base0A #ffefcc
+set $base0B #a5ffe1
+set $base0C #97e0ff
+set $base0D #97bbf7
+set $base0E #c0b7f9
+set $base0F #fcc09e
+
+#                       border  background text    indicator
+client.focused          $base01 $base01    $base07 $base0F
+client.focused_inactive $base02 $base02    $base03 $base0F
+client.unfocused        $base02 $base02    $base03 $base0F
+client.urgent           $base02 $base08    $base00 $base0F
+
 bar {
 	status_command i3status
 	position top
@@ -133,7 +157,7 @@ bar {
 	strip_workspace_numbers yes
 
 	colors {
-		background #000000
+		background #546e7a
 		statusline #ffffff
 
 		focused_workspace  #ffffff #285577
