@@ -182,3 +182,7 @@ bar {
 		urgent_workspace   #ffffff #900000
 	}
 }
+
+# Startup
+exec firefox
+exec thunderbird
