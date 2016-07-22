@@ -1,6 +1,15 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod       Mod1
+set $volInc    0x1008ff13
+set $volDec    0x1008FF11
+set $volSil    0x1008FF12
+set $lock      0x1008FF2D
+set $network   0x1008FF95
+set $nextSong  0x1008FF17
+set $prevSong  0x1008FF16
+set $playPause 0x1008FF14
+set $stop      0x1008FF15
 
 font pango:DejaVu Sans Mono 8
 
@@ -20,6 +29,12 @@ assign [class="Firefox"] 9:九
 bindsym $mod+Shift+t exec thunderbird
 assign [class="Thunderbird"] 8:八
 bindsym $mod+Shift+w exec --no-startup-id feh --randomize --recursive --bg-fill /home/langest/currentWps/
+
+# ncmpscpp
+bindsym $nextSong exec mpc next
+bindsym $prevSong exec mpc prev
+bindsym $playPause exec mpc toggle
+bindsym $stop exec mpc stop
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
