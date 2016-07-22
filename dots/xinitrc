@@ -21,7 +21,6 @@ redshift -O 5500
 
 #Set bg
 feh --randomize --recursive --bg-fill /home/langest/currentWps/
-#feh --randomize --recursive --bg-fill images/wps/winter/
 
 #launch urxvt as daemon and load config
 urxvtd --quiet --opendisplay --fork
