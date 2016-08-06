@@ -19,6 +19,9 @@ alias colors='sh ~/.colors.sh'
 #ncmpcpp
 alias ncmpcpp='mpd; ncmpcpp'
 
+#livestreamer
+alias livestreamer='livestreamer -p xine'
+
 #mount
 alias mountusb='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sudo umount'
