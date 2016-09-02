@@ -53,7 +53,7 @@ done
 echo    # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	git clone git@github.com:langest/$HOME/programming/c/dwm
+	git clone https://github.com/langest/dwm $HOME/programming/c/dwm
 	make -C $HOME/programming/c/dwm config.h
 	sudo make -C $HOME/programming/c/dwm install
 fi
