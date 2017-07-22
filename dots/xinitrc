@@ -23,7 +23,7 @@ feh --randomize --recursive --bg-fill /home/langest/currentWps/
 #launch urxvt as daemon and load config
 urxvtd --quiet --opendisplay --fork
 xrdb - merge ~/.Xresources
-setxkbmap se
+#setxkbmap se
 
 #launch statusbar program
 dwmstatus &
@@ -40,6 +40,5 @@ numlockx on
 setxkbmap -option ctrl:nocaps       # Make Caps Lock a Control key
 
 firefox &
-thunderbird &
 
 exec dwm
