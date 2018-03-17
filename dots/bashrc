@@ -12,13 +12,6 @@ PS1='[\u@\h \W]\$ '
 # default editor
 export EDITOR='vim'
 
-# go
-export GOPATH=$HOME/programming/go
-export PATH=$PATH:$GOPATH/bin
-
-# ruby gems
-export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin
-
 # Source
 source ~/dotfiles/aliases
 source /usr/share/git/completion/git-completion.bash
