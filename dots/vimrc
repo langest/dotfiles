@@ -47,6 +47,12 @@ set scrolloff=8
 " Write with sudo using w!!
 cmap w!! %!sudo tee > /dev/null %
 
+" 80th column mark
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=8
+endif
+
 " Bubble text
 nmap <C-k> ddkP
 nmap <C-j> ddp
