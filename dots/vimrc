@@ -34,6 +34,9 @@ set updatetime=100
 " Enable line numbering
 set nu
 
+" Set default style of netrw
+let g:netrw_liststyle = 3
+
 " Reload files changed outside vim
 set autoread
 
