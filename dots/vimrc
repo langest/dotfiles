@@ -12,8 +12,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'twerth/ir_black'
 Plugin 'tomasr/molokai'
 
-Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -28,7 +28,8 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 
-
+" Set update time for git-gutter
+set updatetime=100
 
 " Enable line numbering
 set nu
@@ -40,7 +41,6 @@ set autoread
 set nrformats=
 
 " COLOR
-"set t_Co=16
 set t_Co=256
 let g:hybrid_use_Xresources = 1
 colorscheme ir_black
