@@ -57,14 +57,14 @@ set hlsearch
 " Enable syntax highlighting
 syntax enable
 
-" Set utf8 as standard encoding and en_US as the standard language
+" Set utf8 as standard encoding
 set encoding=utf8
 
 " Tab indention
 set autoindent
 set smartindent
 
-" 1 tab == 4 spaces
+" 1 tab == 2 spaces
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
