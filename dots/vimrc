@@ -100,22 +100,8 @@ if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
-" Remove trailing whitespace in the entire file
-function! <SID>StripTrailingWhitespaces()
-	Preparation: save last search, and cursor position.
-	let _s=@/
-	let l = line(".")
-	let c = col(".")
-	" Do the business:
-	%s/\s\+$//e
-	" Clean up: restore previous search history,
-	and cursor position
-	let @/=_s
-	call cursor(l, c)
-endfunction
-
-" Bind the removal of trailing whitespace to F5
-nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+" Trim trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
 
 """"""""""""""""""""
 " Haskell settings "
