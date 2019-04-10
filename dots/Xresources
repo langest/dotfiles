@@ -3,7 +3,7 @@
 
 Xcursor.theme: Vanilla-DMZ
 
-URxvt.font: xft:Inconsolata:size=10:antialias=true
+URxvt.font: xft:Inconsolata:size=8:antialias=true
 URxvt*multichar_encoding: utf-8
 
 ! perl extensions
