@@ -9,7 +9,7 @@ URxvt*multichar_encoding: utf-8
 ! perl extensions
 URxvt*perl-ext-common: default,clipboard,matcher
 
-URxvt*saveLines: 6000
+URxvt*saveLines: 12000
 
 ! url opener
 URxvt*url-launcher: /usr/bin/firefox
