@@ -64,3 +64,6 @@ alias enableCcache='export PATH=/usr/lib/ccache/bin:$PATH'
 
 alias ytplaylist='youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
 alias ytvideo='youtube-dl -f bestvideo+bestaudio'
+
+alias vi='nvim'
+alias vim='nvim'
