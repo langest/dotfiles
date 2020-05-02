@@ -1,37 +1,37 @@
-#ls default behaviour
+# ls default behaviour
 alias ls='ls --color=auto -h --group-directories-first'
 
-#change wp
+# change wp
 alias setwp='feh --bg-fill'
 
-#watch images
+# watch images
 alias fehshow='feh -rzFD5'
 
-#display terminal colors
+# display terminal colors
 alias colors='sh ~/repos/deotfiles/scripts/colors.sh'
 
-#ncmpcpp
+# ncmpcpp
 alias ncmpcpp='mpd; ncmpcpp'
 
-#mount
+# mount
 alias mountusb='sudo mount -o gid=users,fmask=113,dmask=002'
 
-#ssh
+# ssh
 alias ssh2kth='ssh -X langest@u-shell.csc.kth.se'
 
-#jekyll
+# jekyll
 alias 'jekyll-serve'='jekyll serve --baseurl ""'
 
-#c++
+# c++
 alias remake='make clean; make'
 
-#urxvt
+# urxvt
 alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
 
-#ytdl
+# ytdl
 alias ytaudio='youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
 alias ytvideo='youtube-dl -f bestvideo+bestaudio'
 
-#use better editor
+# use better editor
 alias vi='nvim'
 alias vim='nvim'
