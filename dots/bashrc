@@ -9,7 +9,7 @@
 PS1='(\t) (\w)\n(\u@\h)\$ '
 
 # default editor
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Source
 source ~/dotfiles/aliases
