@@ -1,6 +1,21 @@
 # ls default behaviour
 alias ls='ls --color=auto -h --group-directories-first'
 
+# git
+alias gst='git status'
+alias gpsh='git push'
+alias gpll='git pull'
+alias gadd='git add'
+alias gtree='git log --online --graph --decorate --all'
+alias glog='git log'
+alias gshw='git show'
+alias gcom='git commit'
+alias gchk='git checkout'
+alias gmast='git checkout master'
+alias gdev='git checkout develop'
+alias gmer='git merge'
+alias greb='git rebase'
+
 # change wp
 alias setwp='feh --bg-fill'
 
