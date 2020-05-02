@@ -12,9 +12,9 @@ PS1='(\t) (\w)\n(\u@\h)\$ '
 export EDITOR='nvim'
 
 # Source
-source ~/dotfiles/aliases
-source /usr/share/git/completion/git-completion.bash
-source /usr/share/git/completion/git-prompt.sh
+source ~/repos/dotfiles/aliases
+#source /usr/share/git/completion/git-completion.bash
+#source /usr/share/git/completion/git-prompt.sh
 
 # Better history
 export HISTCONTROL=ignoreboth:erasedups
