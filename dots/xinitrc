@@ -13,20 +13,24 @@ fi
 
 mpv --volume=60 'Microsoft Windows 95 Startup Sound-miZHa7ZC6Z0.m4a' &
 
-xrandr --output HDMI2 --off &# --same-as LVDS1 --mode 1280x800
-redshift 5000 &
-xbacklight -set 30% &
-xcompmgr &
+xrandr --output HDMI2 --off &
+# xrandr --output HDMI2 --same-as eDP1 --mode 1366x768 &
+
+#feh --randomize --recursive --bg-fill /home/langest/img/wps
+feh --randomize --recursive --bg-tile /home/langest/img/tiling
+
+redshift -O 5000 &
+xbacklight -set 20% &
+xcompmgr 2>&1 >/dev/null &
 
 # launch agent
 eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 
-feh --randomize --recursive --bg-fill /home/langest/currentWps/
-xrdb - merge ~/.Xresources
-urxvtd --quiet --opendisplay --fork
+# xrdb - merge ~/.Xresources
+# urxvtd --quiet --opendisplay --fork
 
 #launch statusbar program
-dwmstatus &
+/home/langest/repos/dwmstatus-c/dwmstatus 2>&1 >/dev/null &
 
 # disable beep
 xset b off &
