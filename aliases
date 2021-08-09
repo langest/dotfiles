@@ -1,6 +1,9 @@
 # ls default behaviour
 alias ls='ls --color=auto -h --group-directories-first'
 
+# programming
+alias format-all="STYLE=file; for E in 'h' 'cpp'; do find . -name *.cpp -exec clang-format -i --style file {} \;; done"
+
 # git
 alias gst='git status'
 alias gpsh='git push'
