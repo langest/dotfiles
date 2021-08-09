@@ -22,9 +22,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
 
 if has('nvim') || has('patch-8.0.902')
-  Plug 'mhinz/vim-signify'
+	Plug 'mhinz/vim-signify'
 else
-  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+	Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 call plug#end()
 
@@ -92,8 +92,8 @@ cmap w!! %!sudo tee > /dev/null %
 
 " 80th column mark
 if (exists('+colorcolumn'))
-    set colorcolumn=80
-    highlight ColorColumn ctermbg=8
+	set colorcolumn=80
+	highlight ColorColumn ctermbg=8
 endif
 
 " Bubble text
