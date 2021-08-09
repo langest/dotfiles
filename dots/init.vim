@@ -115,7 +115,7 @@ endif
 autocmd BufWritePre * %s/\s\+$//e
 
 """""""""""""""""""
-" Pyrhon settings "
+" Python settings "
 """""""""""""""""""
 au BufEnter *.py set tabstop=4
 au BufEnter *.py set softtabstop=4
