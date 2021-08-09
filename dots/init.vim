@@ -152,6 +152,10 @@ au BufEnter *.py set fileformat=unix
 au BufEnter *.py nnoremap <Leader>d oimport pdb; pdb.set_trace()<Esc>
 au BufEnter *.py nnoremap <Leader>D Oimport pdb; pdb.set_trace()<Esc>
 
+if (exists('+colorcolumn'))
+	au BufEnter *.py set colorcolumn=100
+endif
+
 """"""""""""""""""""
 " Haskell settings "
 """"""""""""""""""""
