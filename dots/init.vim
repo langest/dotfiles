@@ -116,6 +116,33 @@ endif
 " Trim trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+""""""""""""""""""
+" C/C++ settings "
+""""""""""""""""""
+au BufEnter *.h set path+=include/,source/
+au BufEnter *.h set textwidth=100
+au BufEnter *.h set expandtab
+
+au BufEnter *.c set path+=include/,source/
+au BufEnter *.c set textwidth=100
+au BufEnter *.c set expandtab
+
+au BufEnter *.hpp set path+=include/,source/
+au BufEnter *.hpp set textwidth=100
+au BufEnter *.hpp set expandtab
+
+au BufEnter *.cpp set path+=include/,source/
+au BufEnter *.cpp set textwidth=100
+au BufEnter *.cpp set expandtab
+
+if (exists('+colorcolumn'))
+	au BufEnter *.h set colorcolumn=100
+	au BufEnter *.c set colorcolumn=100
+
+	au BufEnter *.hpp set colorcolumn=100
+	au BufEnter *.cpp set colorcolumn=100
+endif
+
 """""""""""""""""""
 " Python settings "
 """""""""""""""""""
