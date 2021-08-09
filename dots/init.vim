@@ -35,7 +35,9 @@ if executable('ag')
 	let g:ackprg = 'ag --vimgrep'
 endif
 
-" Set update time
+nnoremap <Leader>] :CtrlPTag<cr>
+
+" Set update time for git-gutter
 set updatetime=100
 
 " Enable line numbering
