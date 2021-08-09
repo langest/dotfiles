@@ -170,3 +170,5 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Remove Ex mode
 noremap Q <NOP>
+
+command! E Explore
