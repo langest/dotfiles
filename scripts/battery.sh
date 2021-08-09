@@ -7,11 +7,18 @@ then
 	exit 1
 fi
 
+if [[ "$EUID" -ne 0 ]]; then
+	echo "Run as root"
+	exit 1
+fi
+
+
 CMD="$1"
-if [[ ! ($CMD = "reset" || $CMD = "balanced" || $CMD = "status") ]]
+if [[ ! ($CMD = "reset" || $CMD = "balanced" || $CMD = "hot" || $CMD = "status") ]]
 then
-	echo "Requires parameter reset, balanced or status"
-	echo "Usage: $0 <reset|balanced|status>"
+	echo "Requires parameter reset, balanced, hot or status"
+	echo "Usage: $0 <reset|balanced|hot|status>"
+	echo "hot: charges external battery more than balanced"
 	echo "Example: $0 reset"
 	exit 1
 fi
@@ -32,6 +39,15 @@ then
 	tpacpi-bat -s SP 1 45
 	tpacpi-bat -s ST 2 38
 	tpacpi-bat -s SP 2 55
+fi
+
+if [[ $CMD = "hot" ]]
+then
+	echo "Charging external battery som extra"
+	tpacpi-bat -s ST 1 38
+	tpacpi-bat -s SP 1 45
+	tpacpi-bat -s ST 2 71
+	tpacpi-bat -s SP 2 73
 fi
 
 echo "Battery 1 limits"
