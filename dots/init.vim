@@ -45,7 +45,7 @@ set nu
 
 " Show whitespace
 set list
-set listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:~
+set listchars=tab:>\ ,trail:~,extends:>,precedes:<,nbsp:~
 
 " Set default style of netrw
 let g:netrw_liststyle = 3
