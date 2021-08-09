@@ -163,7 +163,7 @@ au BufEnter *.hs set expandtab     "Always uses spaces instead of tabs
 au BufEnter *.hs set shiftround    "Round indent to nearest shiftwidth multiple
 
 """""""""""""""""
-" TAML settings "
+" YAML settings "
 """""""""""""""""
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
