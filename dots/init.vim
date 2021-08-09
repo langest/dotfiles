@@ -146,12 +146,8 @@ endif
 """""""""""""""""""
 " Python settings "
 """""""""""""""""""
-au BufEnter *.py set tabstop=4
-au BufEnter *.py set softtabstop=4
-au BufEnter *.py set shiftwidth=4
-au BufEnter *.py set textwidth=80
+au BufEnter *.py set textwidth=100
 au BufEnter *.py set expandtab
-au BufEnter *.py set autoindent
 au BufEnter *.py set fileformat=unix
 au BufEnter *.py nnoremap <Leader>d oimport pdb; pdb.set_trace()<Esc>
 au BufEnter *.py nnoremap <Leader>D Oimport pdb; pdb.set_trace()<Esc>
@@ -159,10 +155,7 @@ au BufEnter *.py nnoremap <Leader>D Oimport pdb; pdb.set_trace()<Esc>
 """"""""""""""""""""
 " Haskell settings "
 """"""""""""""""""""
-au BufEnter *.hs set tabstop=4     "A tab is 4 spaces
 au BufEnter *.hs set expandtab     "Always uses spaces instead of tabs
-au BufEnter *.hs set softtabstop=4 "Insert 4 spaces when tab is pressed
-au BufEnter *.hs set shiftwidth=4  "An indent is 2 spaces
 au BufEnter *.hs set shiftround    "Round indent to nearest shiftwidth multiple
 
 """""""""""""""""
