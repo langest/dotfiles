@@ -53,3 +53,7 @@ alias ytvideo='youtube-dl -f bestvideo+bestaudio'
 # use better editor
 alias vi='nvim'
 alias vim='nvim'
+
+# use apulse wrapper for programs that need it
+alias firefox='apulse firefox'
+alias discord='apulse discord'
