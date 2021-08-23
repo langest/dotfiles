@@ -4,6 +4,12 @@
 #
 # Executed by startx (run your window manager from here)
 
+mpv --volume=90 'Windows XP Startup.mp3' &
+
+#xrandr --output HDMI2 --off
+#xrandr --output HDMI2 --same-as eDP1
+#feh --randomize --recursive --bg-tile /home/langest/img/tiling
+
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
     [ -x "$f" ] && . "$f"
@@ -11,31 +17,27 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-mpv --volume=60 'Microsoft Windows 95 Startup Sound-miZHa7ZC6Z0.m4a' &
-
-xrandr --output HDMI2 --off &
-# xrandr --output HDMI2 --same-as eDP1 --mode 1366x768 &
-
-#feh --randomize --recursive --bg-fill /home/langest/img/wps
-feh --randomize --recursive --bg-tile /home/langest/img/tiling
-
-redshift -O 5000 &
-xbacklight -set 20% &
+redshift -O 5000
+xbacklight -set 30%
 xcompmgr 2>&1 >/dev/null &
 
 # launch agent
 eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 
-# xrdb - merge ~/.Xresources
+xrdb -merge ~/.Xresources
 # urxvtd --quiet --opendisplay --fork
 
-#launch statusbar program
 /home/langest/repos/dwmstatus-c/dwmstatus 2>&1 >/dev/null &
 
 # disable beep
-xset b off &
+xset b off
 
 numlockx on
 setxkbmap -option ctrl:nocaps
 
+/bin/bash -c 'sleep 1.92; xrandr --output HDMI2 --right-of eDP1 --mode 1920x1200; feh --randomize --recursive --bg-fill /home/langest/img/wps' &
+#xrandr --output HDMI2 --off
+#feh --randomize --recursive --bg-fill /home/langest/img/wps
+
 exec dwm
+#exec start-lumina-desktop
