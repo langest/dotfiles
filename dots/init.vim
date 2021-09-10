@@ -4,11 +4,8 @@ set nocompatible
 call plug#begin()
 " colorschemes
 Plug 'morhetz/gruvbox'
-Plug 'nanotech/jellybeans.vim'
 Plug 'sickill/vim-monokai'
-Plug 'sjl/badwolf'
-Plug 'tomasr/molokai'
-Plug 'twerth/ir_black'
+"Plug 'twerth/ir_black'
 
 Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -57,8 +54,20 @@ set autoread
 set nrformats=
 
 " COLOR
-set t_Co=256
+"set t_Co=256
 "let g:hybrid_use_Xresources = 1
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+" gruvbox settings
+let g:gruvbox_italic = 1
+set bg=light
 colorscheme gruvbox
 
 " Ignore case when searching
