@@ -57,3 +57,4 @@ alias vim='nvim'
 # use apulse wrapper for programs that need it
 alias firefox='apulse firefox'
 alias discord='apulse discord'
+alias signal-desktop='apulse signal-desktop'
