@@ -4,11 +4,11 @@
 #
 # Executed by startx (run your window manager from here)
 
-mpv --volume=90 'Windows XP Startup.mp3' &
+if [ -z "$MONITOR_SETTINGS" ]; then
+	export MONITOR_SETTINGS=internal
+fi
 
-#xrandr --output HDMI2 --off
-#xrandr --output HDMI2 --same-as eDP1
-#feh --randomize --recursive --bg-tile /home/langest/img/tiling
+mpv --volume=90 'Windows XP Startup.mp3' &
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -27,7 +27,7 @@ eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 xrdb -merge ~/.Xresources
 # urxvtd --quiet --opendisplay --fork
 
-/home/langest/repos/dwmstatus-c/dwmstatus 2>&1 >/dev/null &
+$HOME/repos/dwmstatus-c/dwmstatus 2>&1 >/dev/null &
 
 # disable beep
 xset b off
@@ -35,10 +35,10 @@ xset b off
 numlockx on
 setxkbmap -option ctrl:nocaps
 
-#/bin/bash -c 'sleep 1.92; xrandr --output HDMI1 --right-of eDP1 --auto --rotate left; xrandr --output HDMI2 --right-of HDMI1 --mode 1920x1200; xrandr --output eDP1 --off #; feh --randomize --recursive --bg-fill /home/langest/img/wps' &
-xrandr --output HDMI1 --off
-xrandr --output HDMI2 --off
-feh --randomize --recursive --bg-fill /home/langest/img/wps
+WALLPAPER_SCRIPT=$GIT_HOME/dotfiles/scripts/setup_screens.sh
+if [[ -x "$WALLPAPER_SCRIPT" ]]; then
+	/bin/bash ${WALLPAPER_SCRIPT}
+fi
 
 exec dwm
 #exec start-lumina-desktop
