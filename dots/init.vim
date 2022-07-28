@@ -6,6 +6,10 @@ call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'sickill/vim-monokai'
 "Plug 'twerth/ir_black'
+Plug 'rakr/vim-one'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-scripts/win9xblueback.vim'
+Plug 'cocopon/iceberg.vim'
 
 Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
