@@ -14,4 +14,6 @@ opkg install kmod-fs-exfat
 opkg install f2fs-tools
 opkg install kmod-fs-f2fs
 
+opkg install kmod-usb-net-cdc-ether
+
 opkg install bash
