@@ -1,0 +1,32 @@
+"" Ignore case when searching
+set ignorecase
+
+"" Highlight search results
+set hlsearch
+
+"" Always keep away from bottom/top
+set scrolloff=8
+
+"" Bubble text
+nmap <C-k> ddkP
+nmap <C-j> ddp
+vmap <C-k> xkP`[V`]
+vmap <C-j> xp`[V`]
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+
+"" Return to old position when reopening files
+if has(""autocmd"")
+	au BufReadPost * if line(""'\"""") > 1 && line(""'\"""") <= line(""$"") | exe ""normal! g`\"""" | endif
+endif
+
+""""""""""""""""""""""""""""""""""""""
+"" Python settings ""
+""""""""""""""""""""""""""""""""""""""
+au BufEnter *.py nnoremap <Leader>d oimport pdb; pdb.set_trace()<Esc>
+au BufEnter *.py nnoremap <Leader>D Oimport pdb; pdb.set_trace()<Esc>
+
+"" Remove Ex mode
+noremap Q <NOP>
