@@ -13,6 +13,7 @@ URxvt*saveLines: 12000
 
 ! url opener
 URxvt*url-launcher: /usr/bin/firefox
+URxvt.underlineURLs: true
 URxvt.matcher.button: 1
 
 ! transparency
@@ -36,8 +37,8 @@ URxvt.keysym.Control-Right: \033[1;5C
 URxvt*iso14755: false
 URxvt*iso14755_52: false
 
-! copy-paste
-URxvt.keysym.C-S-c: perl:clipboard:copy
-URxvt.keysym.C-S-v: perl:clipboard:paste
-URxvt.perl-ext-common: default,clipboard
-
+!-*- Copy -*-
+URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.Control-Shift-V: perl:pasta:paste
+URxvt.clipboard.autocopy: true
