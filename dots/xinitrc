@@ -25,7 +25,7 @@ xcompmgr 2>&1 >/dev/null &
 eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 
 xrdb -merge ~/.Xresources
-# urxvtd --quiet --opendisplay --fork
+urxvtd --quiet --opendisplay --fork
 
 $HOME/repos/dwmstatus-c/dwmstatus 2>&1 >/dev/null &
 
