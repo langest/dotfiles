@@ -18,6 +18,7 @@ alias gmast='git checkout master'
 alias gdev='git checkout develop'
 alias gmer='git merge'
 alias greb='git rebase'
+alias gbrcln='git branch --merged | egrep -v "(^\*|master|main|dev|develop|development)" | xargs git branch -d'
 
 # change wp
 alias setwp='feh --bg-fill'
