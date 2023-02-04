@@ -1,7 +1,7 @@
 !Color theme
-#include "/home/langest/dotfiles/xcolor/X_ir_black"
+#include "/home/langest/repos/dotfiles/xcolor/X_gruvbox-dark"
 
-Xcursor.theme: Vanilla-DMZ
+Xcursor.theme: DMZ-White
 
 URxvt.font: xft:Inconsolata:size=8:antialias=true
 URxvt*multichar_encoding: utf-8
@@ -16,8 +16,10 @@ URxvt*url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
 ! transparency
-URxvt*transparent: true
-URxvt*shading: 30
+!URxvt*transparent: true
+!URxvt*shading: 70
+URxvt.depth: 32
+URxvt.background: rgba:3f00/3f00/3f00/dddd
 
 ! internal border
 URxvt.internalBorder: 8
@@ -35,6 +37,7 @@ URxvt*iso14755: false
 URxvt*iso14755_52: false
 
 ! copy-paste
-URxvt.keysym.Control-V: perl:clipboard:paste
-URxvt.keysym.Control-C: perl:clipboard:copy
+URxvt.keysym.C-S-c: perl:clipboard:copy
+URxvt.keysym.C-S-v: perl:clipboard:paste
+URxvt.perl-ext-common: default,clipboard
 
