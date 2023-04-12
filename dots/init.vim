@@ -11,6 +11,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-scripts/win9xblueback.vim'
 Plug 'cocopon/iceberg.vim'
 
+Plug 'github/copilot.vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'glts/vim-magnum'
