@@ -5,8 +5,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# prompt
-PS1='(\t) (\w)\n(\u@\h)\$ '
+# Prompt
+# Basic
+#PS1='(\t) (\w)\n(\u@\h)\$ '
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+PS1='${debian_chroot:+($debian_chroot) }(\t) (\w)\n(\u@\h)\$ '
 
 # default editor
 export EDITOR='nvim'
