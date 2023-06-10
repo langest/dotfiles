@@ -173,6 +173,8 @@ bindsym $mod+shift+w exec --no-startup-id bash $HOME/repos/dotfiles/scripts/wall
 bindsym $mod+shift+e exec --no-startup-id bash $HOME/repos/dotfiles/scripts/wallpaper_tiling.sh
 bindsym $mod+shift+f exec firefox
 bindsym $mod+shift+g exec chromium
+# Toggle kb layout
+bindsym Control+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\s\+us' && (setxkbmap se && notify-send 'Switched to SE layout') || (setxkbmap us && notify-send 'Switched to US layout')"
 
 assign [class="Chromium"] $ws8
 assign [class="Firefox"] $ws9
