@@ -1,0 +1,29 @@
+#!/bin/bash
+mpv 'Microsoft Windows 95 Startup Sound.m4a' &
+
+if [ -z "$MONITOR_SETTINGS" ]; then
+	export MONITOR_SETTINGS=internal
+fi
+export MONITOR_SETTINGS=external
+export GIT_HOME=$HOME/repos
+
+#redshift -O 5000
+xbacklight -set 30%
+xcompmgr 2>&1 >/dev/null &
+
+# launch agent
+eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
+
+xrdb -merge ~/.Xresources
+urxvtd --quiet --opendisplay --fork
+
+# disable beep
+xset b off
+
+numlockx on
+setxkbmap -option ctrl:nocaps
+
+SETUP_SCREENS=$GIT_HOME/dotfiles/scripts/setup_screens.sh
+if [[ -x "$SETUP_SCREENS" ]]; then
+	/bin/bash ${SETUP_SCREENS}
+fi
