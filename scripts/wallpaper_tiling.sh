@@ -1,3 +1,3 @@
 #!/bin/sh
 
-feh --randomize --recursive --bg-tile /home/langest/img/tiling/
+feh --randomize --recursive --bg-tile /home/daniel/Pictures/tiling/
