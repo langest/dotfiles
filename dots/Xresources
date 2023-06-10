@@ -1,9 +1,9 @@
 !Color theme
-#include "/home/langest/repos/dotfiles/xcolor/X_gruvbox-dark"
+#include "/home/daniel/repos/dotfiles/xcolor/X_gruvbox-dark"
 
 Xcursor.theme: DMZ-White
 
-URxvt.font: xft:Inconsolata:size=10:antialias=true
+URxvt.font: xft:Inconsolata:size=8:antialias=true
 URxvt*multichar_encoding: utf-8
 
 ! perl extensions
