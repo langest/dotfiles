@@ -167,6 +167,7 @@ bar {
 bindsym $mod+Tab workspace back_and_forth
 
 # Make some room for us to breathe
+smart_gaps on
 gaps inner 4
 
 bindsym $mod+shift+w exec --no-startup-id bash $HOME/repos/dotfiles/scripts/wallpaper.sh
