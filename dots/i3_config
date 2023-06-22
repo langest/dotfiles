@@ -178,4 +178,4 @@ bindsym $mod+shift+g exec chromium
 bindsym Control+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\s\+us' && (setxkbmap se && notify-send 'Switched to SE layout') || (setxkbmap us && notify-send 'Switched to US layout')"
 
 assign [class="Chromium"] $ws8
-assign [class="Firefox"] $ws9
+assign [class="firefox"] $ws9
