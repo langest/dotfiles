@@ -23,10 +23,10 @@ xset b off
 numlockx on
 setxkbmap -option ctrl:nocaps
 
-SETUP_MOUSE=$GIT_HOME/dotfiles/scripts/mouse_config.sh
-if [[ -x "$SETUP_MOUSE" ]]; then
-	/bin/bash ${SETUP_MOUSE}
-fi
+#SETUP_MOUSE=$GIT_HOME/dotfiles/scripts/mouse_config.sh
+#if [[ -x "$SETUP_MOUSE" ]]; then
+#	/bin/bash ${SETUP_MOUSE}
+#fi
 
 SETUP_SCREENS=$GIT_HOME/dotfiles/scripts/setup_screens.sh
 if [[ -x "$SETUP_SCREENS" ]]; then
