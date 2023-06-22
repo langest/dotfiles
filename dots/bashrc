@@ -16,6 +16,8 @@ PS1='${debian_chroot:+($debian_chroot) }(\t) (\w)\n(\u@\h)\$ '
 # default editor
 export EDITOR='nvim'
 
+export PATH=$PATH:$HOME/.local/bin
+
 # Source
 source ~/repos/dotfiles/aliases
 #source /usr/share/git/completion/git-completion.bash
