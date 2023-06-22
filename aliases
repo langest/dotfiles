@@ -48,8 +48,8 @@ alias remake='make clean; make'
 alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
 
 # ytdl
-alias ytaudio='youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
-alias ytvideo='youtube-dl -f bestvideo+bestaudio'
+alias ytaudio='yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
+alias ytvideo='yt-dlp -f bestvideo+bestaudio'
 
 # use better editor
 alias vi='nvim'
