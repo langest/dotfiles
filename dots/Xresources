@@ -42,3 +42,7 @@ URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-sel
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.Control-Shift-V: perl:pasta:paste
 URxvt.clipboard.autocopy: true
+
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+
