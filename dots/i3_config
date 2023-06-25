@@ -211,6 +211,8 @@ bindsym Control+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\
 
 assign [class="Chromium"] $ws8
 assign [class="firefox"] $ws9
+assign [class="Signal"] $ws4
+assign [class="qBittorrent"] $ws6
 
 client.focused #ADD8E6 #ADD8E6 #ffffff #2e9ef4
 client.focused_inactive #ADD8E6 #ADD8E6 #ffffff #2e9ef4
