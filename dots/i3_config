@@ -3,6 +3,8 @@ set $mod Mod1
 set $term urxvtc
 set $script_home ~/repos/dotfiles/scripts
 set $notify_duration -t 325
+#set $launcher dmenu
+set $launcher rofi -show run -theme Adapta-Nokto
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -56,8 +58,7 @@ bindsym $mod+shift+Return exec $term
 # kill focused window
 bindsym $mod+Shift+c kill
 
-#bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+p exec --no-startup-id dmenu_run
+bindsym $mod+p exec --no-startup-id $launcher
 
 # change focus
 bindsym $mod+h focus left
