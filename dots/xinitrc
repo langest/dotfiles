@@ -27,7 +27,7 @@ eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 xrdb -merge ~/.Xresources
 urxvtd --quiet --opendisplay --fork
 
-$HOME/repos/dwmstatus-c/dwmstatus 2>&1 >/dev/null &
+#$HOME/repos/dwmstatus-c/dwmstatus 2>&1 >/dev/null &
 
 # disable beep
 xset b off
@@ -35,10 +35,12 @@ xset b off
 numlockx on
 setxkbmap -option ctrl:nocaps
 
-WALLPAPER_SCRIPT=$GIT_HOME/dotfiles/scripts/setup_screens.sh
-if [[ -x "$WALLPAPER_SCRIPT" ]]; then
-	/bin/bash ${WALLPAPER_SCRIPT}
-fi
+/home/daniel/repos/dotfiles/scripts/setup_screens.sh
 
-exec dwm
+dunst &>/dev/null &
+
+bash -c "sleep 2 && pkill i3_status -SIGUSR1" &
+
+exec i3
+#exec dwm
 #exec start-lumina-desktop

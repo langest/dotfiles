@@ -2,6 +2,7 @@ set $mod Mod1
 #set $term i3-sensible-terminal
 set $term urxvtc
 set $script_home ~/repos/dotfiles/scripts
+set $notify_duration -t 325
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -30,16 +31,16 @@ exec --no-startup-id nm-applet
 set $refresh_i3status pkill i3_status -SIGUSR1
 
 # Raise volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id $script_home/change_volume.sh increase && notify-send "Volume Up" "Volume was increased" && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id $script_home/change_volume.sh increase && notify-send $notify_duration "Volume Up" "Volume was increased" && $refresh_i3status
 
 # Lower volume
-bindsym XF86AudioLowerVolume exec --no-startup-id $script_home/change_volume.sh decrease && notify-send "Volume Down" "Volume was decreased" && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id $script_home/change_volume.sh decrease && notify-send $notify_duration "Volume Down" "Volume was decreased" && $refresh_i3status
 
 # Mute/Unmute volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status && notify-send "Volume Mute" "Volume was muted/unmuted"
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 0% && $refresh_i3status && notify-send $notify_duration "Volume Mute" "Volume was set to 0%"
 
 # Mute/Unmute microphone
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status && notify-send "Microphone Mute" "Microphone was muted/unmuted"
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status && notify-send $notify_duration "Microphone Mute" "Microphone was muted/unmuted"
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -199,17 +200,19 @@ bindsym $mod+shift+e exec --no-startup-id bash $script_home/wallpaper_tiling.sh
 bindsym $mod+shift+f exec firefox
 bindsym $mod+shift+g exec chromium
 # Toggle kb layout
-bindsym Control+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\s\+us' && (setxkbmap se && notify-send 'Switched to SE layout' && $refresh_i3status) || (setxkbmap us && notify-send 'Switched to US layout' && $refresh_i3status)"
+bindsym Control+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\s\+us' && (setxkbmap se && notify-send $notify_duration 'Switched to SE layout' && $refresh_i3status) || (setxkbmap us && notify-send $notify_duration 'Switched to US layout' && $refresh_i3status)"
 
 
 # Increase backlight
-#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && notify-send 'Brightness increased' && $refresh_i3status
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && notify-send $notify_duration 'Brightness increased' && $refresh_i3status
 # Decrease backlight
-#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && notify-send 'Brightness decreased' && $refresh_i3status
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && notify-send $notify_duration 'Brightness decreased' && $refresh_i3status
 
 assign [class="Chromium"] $ws8
 assign [class="firefox"] $ws9
 
 client.focused #ADD8E6 #ADD8E6 #ffffff #2e9ef4
 client.focused_inactive #ADD8E6 #ADD8E6 #ffffff #2e9ef4
+
+bindsym $mod+b bar mode toggle
 
