@@ -209,10 +209,13 @@ bindsym Control+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\
 # Decrease backlight
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && notify-send $notify_duration 'Brightness decreased' && $refresh_i3status
 
+assign [class="thunderbird"] $ws1
+assign [class="Signal"] $ws2
+assign [class="KeePassXC"] $ws3
+assign [class="qBittorrent"] $ws6
+
 assign [class="Chromium"] $ws8
 assign [class="firefox"] $ws9
-assign [class="Signal"] $ws4
-assign [class="qBittorrent"] $ws6
 
 client.focused #ADD8E6 #ADD8E6 #ffffff #2e9ef4
 client.focused_inactive #ADD8E6 #ADD8E6 #ffffff #2e9ef4
