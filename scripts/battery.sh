@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Install tlp and enable the service:
+# sudo systemctl enable tlp.service
+
 # Check for the correct number of arguments and root privileges
 if [[ $# -ne 1 ]] || [[ "$EUID" -ne 0 ]]; then
     echo "Usage: $0 <reset|balanced|hot|status>"
