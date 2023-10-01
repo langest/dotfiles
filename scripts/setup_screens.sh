@@ -19,3 +19,6 @@ fi
 
 bash `dirname "$0"`/wallpaper.sh
 
+# Make sure to have proper keyboard layout
+setxkbmap -option ctrl:nocaps
+
