@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HDMI1_position="0x0"
-HDMI2_position="-1200x-361"
+HDMI2_position="-1200x-362"
 
 if [[ $MONITOR_SETTINGS = "external" ]]; then
 	xrandr --output eDP1 --off
