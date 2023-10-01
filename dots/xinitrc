@@ -5,7 +5,7 @@
 # Executed by startx (run your window manager from here)
 
 if [ -z "$MONITOR_SETTINGS" ]; then
-	export MONITOR_SETTINGS=internal
+	export MONITOR_SETTINGS=external
 fi
 
 mpv 'Microsoft Windows 95 Startup Sound.m4a' &
