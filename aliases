@@ -21,6 +21,9 @@ alias gmer='git merge'
 alias greb='git rebase'
 alias gbrcln='git branch --merged | egrep -v "(^\*|master|main|dev|develop|development)" | xargs git branch -d'
 
+# docker
+alias dc='docker compose'
+
 # change wp
 alias setwp='feh --bg-fill'
 
