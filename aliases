@@ -7,7 +7,7 @@ alias format-all="STYLE=file; for E in 'h' 'cpp'; do find . -name *.cpp -exec cl
 # git
 alias gst='git status'
 alias gpsh='git push'
-alias gpll='git pull'
+alias gpl='git pull'
 alias gadd='git add'
 alias gtr='git log --oneline --graph --decorate --all'
 alias gtree='git log --oneline --graph --decorate --all'
