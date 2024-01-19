@@ -1,3 +1,9 @@
+# Recover k mistype as up
+k() {
+	local last_command=$(history | awk '$2 != "k"' | tail -n1 | sed 's/^[ ]*[0-9]*[ ]*//')
+	eval "$last_command"
+}
+
 # ls default behaviour
 alias ls='ls --color=auto -h --group-directories-first'
 
