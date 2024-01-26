@@ -204,16 +204,18 @@ bindsym $mod+Shift+g exec chromium
 bindsym Control+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\s\+us' && (setxkbmap se && notify-send $notify_duration 'Switched to SE layout' && $refresh_i3status) || (setxkbmap us && notify-send $notify_duration 'Switched to US layout' && $refresh_i3status)"
 # TODO: Fix scrot, not working via shortcut
 bindsym $mod+Shift+p exec scrot -s ~/Pictures/screenshots/%Y-%m-%d-%H%M%S.png
+bindsym $mod+Shift+q exec slock & systemctl suspend
 
 
 # Increase backlight
-#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && notify-send $notify_duration 'Brightness increased' && $refresh_i3status
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && notify-send $notify_duration 'Brightness increased' && $refresh_i3status
 # Decrease backlight
-#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && notify-send $notify_duration 'Brightness decreased' && $refresh_i3status
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && notify-send $notify_duration 'Brightness decreased' && $refresh_i3status
 
 assign [class="thunderbird"] $ws2
 assign [class="KeePassXC"] $ws3
 assign [class="Signal"] $ws4
+assign [class="discord"] $ws5
 assign [class="qBittorrent"] $ws6
 
 assign [class="Chromium"] $ws8
