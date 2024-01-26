@@ -3,13 +3,12 @@ set nocompatible
 
 call plug#begin()
 " colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'sickill/vim-monokai'
-"Plug 'twerth/ir_black'
-Plug 'rakr/vim-one'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'vim-scripts/win9xblueback.vim'
-Plug 'cocopon/iceberg.vim'
+Plug 'langest/gruvbox'
+Plug 'langest/vim-monokai'
+Plug 'langest/ir_black'
+Plug 'langest/vim-one'
+Plug 'langest/papercolor-theme'
+Plug 'langest/win9xblueback.vim'
 
 Plug 'github/copilot.vim'
 Plug 'christoomey/vim-sort-motion'
