@@ -63,6 +63,13 @@ alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
 # ytdl
 alias ytaudio='yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
 alias ytvideo='yt-dlp -f bestvideo+bestaudio'
+bcaudio() {
+    yt-dlp --extract-audio --audio-format mp3 -o "%(track_number)s - %(title)s.%(ext)s" "$@"
+    for file in [0-9]*.mp3; do
+        mv "$file" "$(printf "%02d - %s" "${file%% - *}" "${file#* - }")"
+    done
+}
+
 
 # use better editor
 alias vi='nvim'
