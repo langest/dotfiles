@@ -27,6 +27,9 @@ alias gmer='git merge'
 alias greb='git rebase'
 alias gbrcln='git branch --merged | egrep -v "(^\*|master|main|dev|develop|development)" | xargs git branch -d'
 
+# intellij
+alias intellij='mullvad-exclude intellij'
+
 # docker
 alias dc='docker compose'
 
