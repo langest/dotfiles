@@ -72,6 +72,7 @@ endif
 " gruvbox settings
 let g:gruvbox_italic = 1
 "set bg=light
+set bg=dark
 colorscheme gruvbox
 
 " Ignore case when searching
