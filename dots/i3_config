@@ -18,7 +18,7 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/daniel/pictures/tiling/dragonscale.png -t -e -f
 
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 
