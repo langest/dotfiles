@@ -204,7 +204,7 @@ bindsym $mod+Shift+g exec chromium
 bindsym Control+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\s\+us' && (setxkbmap se && notify-send $notify_duration 'Switched to SE layout' && $refresh_i3status) || (setxkbmap us && notify-send $notify_duration 'Switched to US layout' && $refresh_i3status)"
 # TODO: Fix scrot, not working via shortcut
 bindsym $mod+Shift+p exec scrot -s ~/Pictures/screenshots/%Y-%m-%d-%H%M%S.png
-bindsym $mod+Shift+q exec slock & systemctl suspend
+bindsym $mod+Shift+q exec systemctl suspend
 
 
 # Increase backlight
