@@ -9,7 +9,7 @@ export GIT_HOME=$HOME/repos
 
 #redshift -O 5000
 xbacklight -set 30%
-xcompmgr 2>&1 >/dev/null &
+picom 2>&1 >/dev/null &
 
 # launch agent
 eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
