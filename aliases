@@ -62,7 +62,8 @@ alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
 
 # ytdl
 alias ytaudio='yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
-alias ytvideo='yt-dlp -f bestvideo+bestaudio'
+alias ytvideo='yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
+alias ytvideo720='yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]"'
 bcaudio() {
     yt-dlp --extract-audio --audio-format mp3 -o "%(track_number)s - %(title)s.%(ext)s" "$@"
     for file in [0-9]*.mp3; do
