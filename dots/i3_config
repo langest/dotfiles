@@ -23,11 +23,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/daniel/pi
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 
 exec --no-startup-id nm-applet
-exec --no-startup-id bash -c "sleep 7 && firefox"
-exec --no-startup-id bash -c "sleep 9 && chromium-browser"
-exec --no-startup-id bash -c "sleep 11 && thunderbird"
-exec --no-startup-id bash -c "sleep 13 && keepassxc"
-exec --no-startup-id bash -c "sleep 15 && signal-desktop"
+exec --no-startup-id bash -c "sleep 5 && firefox"
+exec --no-startup-id bash -c "sleep 7 && chromium-browser"
+exec --no-startup-id bash -c "sleep 8 && thunderbird"
+exec --no-startup-id bash -c "sleep 9 && keepassxc"
+exec --no-startup-id bash -c "sleep 11 && signal-desktop"
 
 # Use signals to refresh status
 set $refresh_i3status pkill i3_status -SIGUSR1
