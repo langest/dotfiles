@@ -4,6 +4,14 @@ set ignorecase
 "" Highlight search results
 set hlsearch
 
+" Git fugitive
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [c <Action>(VcsShowPrevChangeMarker)
+ 
+" Next error
+nmap ]e <Action>(GotoNextError)
+nmap [e <Action>(GotoPreviousError)
+
 "" Always keep away from bottom/top
 set scrolloff=8
 
