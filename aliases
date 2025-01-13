@@ -26,7 +26,7 @@ alias gmast='git checkout master'
 alias gdev='git checkout develop'
 alias gmer='git merge'
 alias greb='git rebase'
-alias gbrcln='git branch --merged | egrep -v "(^\*|master|main|dev|develop|development)" | xargs git branch -d'
+alias gbrcln='~/repos/dotfiles/scripts/git_branch_clean.sh'
 
 # intellij
 alias intellij='mullvad-exclude intellij'
