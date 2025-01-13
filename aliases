@@ -41,7 +41,7 @@ alias setwp='feh --bg-fill'
 alias fehshow='feh -rzFD5'
 
 # display terminal colors
-alias colors='sh ~/repos/deotfiles/scripts/colors.sh'
+alias colors='sh ~/repos/dotfiles/scripts/colors.sh'
 
 # ncmpcpp
 alias ncmpcpp='mpd; ncmpcpp'
