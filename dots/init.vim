@@ -147,7 +147,10 @@ au BufEnter *.h set expandtab
 
 au BufEnter *.c set path+=include/,source/
 au BufEnter *.c set textwidth=120
-au BufEnter *.c set expandtab
+au BufEnter *.c set noexpandtab
+au BufEnter *.c set tabstop=4
+au BufEnter *.c set shiftwidth=4
+au BufEnter *.c set softtabstop=4
 
 au BufEnter *.hpp set path+=include/,source/
 au BufEnter *.hpp set textwidth=120
@@ -155,7 +158,10 @@ au BufEnter *.hpp set expandtab
 
 au BufEnter *.cpp set path+=include/,source/
 au BufEnter *.cpp set textwidth=120
-au BufEnter *.cpp set expandtab
+au BufEnter *.cpp set noexpandtab
+au BufEnter *.cpp set tabstop=4
+au BufEnter *.cpp set shiftwidth=4
+au BufEnter *.cpp set softtabstop=4
 
 if (exists('+colorcolumn'))
 	au BufEnter *.h set colorcolumn=120
