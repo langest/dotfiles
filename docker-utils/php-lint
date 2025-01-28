@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Get the last argument (the filename)
+for last; do true; done
+
+if [ ! -f "$last" ]; then
+    echo "Error: File '$last' does not exist"
+    exit 1
+fi
+
+docker run --rm -v "$(dirname "$last"):/app" -w /app php:8.3-cli php -l "$(basename "$last")"
+
+exit $?
