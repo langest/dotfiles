@@ -1,0 +1,17 @@
+# Map additional extensions to PHP language
+--langmap=php:.engine.inc.module.theme.install.php
+
+# Include classes, functions, and optionally variables in the tags file
+--PHP-kinds=+cf-v
+
+# Regex for abstract classes
+--regex-PHP=/abstract\s+class\s+([^ ]*)/\1/c/
+# Regex for interfaces
+--regex-PHP=/interface\s+([^ ]*)/\1/c/
+# Regex for traits
+--regex-PHP=/trait\s+([^ ]*)/\1/c/
+# Regex for functions (with optional visibility/modifiers)
+--regex-PHP=/(public\s+|static\s+|abstract\s+|protected\s+|private\s+)?function\s+\&?\s*([^ (]*)/\2/f/
+# Regex for constants
+--regex-PHP=/const\s+([^ ]*)/\1/v/
+
