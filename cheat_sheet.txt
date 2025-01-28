@@ -1,0 +1,23 @@
+# ctags #
+# Basic usage excluding vendor
+ctags -R --exclude=vendor
+
+# Only PHP files excluding vendor
+ctags -R --languages=PHP --exclude=vendor
+
+# Multiple exclusions
+ctags -R --exclude={vendor,node_modules,storage}
+
+# Generate for specific extensions
+ctags -R --languages=PHP,JavaScript,Python
+
+
+# Vim ctags #
+Ctrl-]     - Jump to definition under cursor
+Ctrl-t     - Jump back from definition
+g]         - List all definitions when multiple matches exist
+:tn        - Go to next tag match
+:tp        - Go to previous tag match
+:ts        - List matching tags and select one
+:tag xyz   - Jump to xyz definition
+<Leader>]  - Open CtrlP tag search (from your config)
