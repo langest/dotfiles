@@ -29,6 +29,14 @@ else
 endif
 call plug#end()
 
+" Configure syntastic
+let g:syntastic_php_checkers = ['php']
+let g:syntastic_php_php_exec = expand('~/repos/dotfiles/docker-utils/php-lint')
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " Use ag instead of ack
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
@@ -175,6 +183,22 @@ endif
 """"""""""""""""""""
 au BufEnter *.hs set expandtab     "Always uses spaces instead of tabs
 au BufEnter *.hs set shiftround    "Round indent to nearest shiftwidth multiple
+
+""""""""""""""""
+" PHP settings "
+""""""""""""""""
+au BufEnter *.php set expandtab
+au BufEnter *.php set tabstop=4
+au BufEnter *.php set shiftwidth=4
+au BufEnter *.php set softtabstop=4
+au BufEnter *.php set textwidth=120
+au BufEnter *.php set autoindent
+au BufEnter *.php set smartindent
+autocmd BufNewFile,BufRead *.php set filetype=php syntax=php
+
+if (exists('+colorcolumn'))
+    au BufEnter *.php set colorcolumn=120
+endif
 
 """""""""""""""""
 " YAML settings "
