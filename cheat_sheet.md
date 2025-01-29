@@ -6,9 +6,7 @@
 * `ctags -R --languages=PHP,JavaScript,Python`
 
 ## Vim ctags
-* `Ctrl-]`     - Overridden for gCtrl-]
-
-* `Ctrl-]`     - Jump to definition under cursor
+* `Ctrl-]`     - Overridden for gCtrl-], default: Jump to definition under cursor
 * `Ctrl-t`     - Jump back from definition
 * `g]`         - List all definitions when multiple matches exist
 * `gCtrl-]`    - Jump to definition if only one match exists else list all matches
