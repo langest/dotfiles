@@ -29,7 +29,7 @@ alias greb='git rebase'
 alias gbrcln='~/repos/dotfiles/scripts/git_branch_clean.sh'
 
 # intellij
-alias intellij='mullvad-exclude intellij'
+#alias intellij='mullvad-exclude /opt/intellij/idea-IU-243.22562.218/bin/idea'
 
 # docker
 alias dc='docker compose'
@@ -62,15 +62,31 @@ alias remake='make clean; make'
 alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
 
 # ytdl
-alias ytaudio='yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
-alias ytvideo='yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
-alias ytvideo720='yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]"'
-bcaudio() {
-    yt-dlp --extract-audio --audio-format mp3 -o "%(track_number)s - %(title)s.%(ext)s" "$@"
-    for file in [0-9]*.mp3; do
-        mv "$file" "$(printf "%02d - %s" "${file%% - *}" "${file#* - }")"
-    done
+ytplay() {
+    (source ~/venv/ytdlp/bin/activate && mpv --ytdl-format="bestvideo[height<=720]+bestaudio/best[height<=720]" "$@" && deactivate)
 }
+ytaudio() {
+    (source ~/venv/ytdlp/bin/activate && yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" "$@" && deactivate)
+}
+ytvideo() {
+    (source ~/venv/ytdlp/bin/activate && yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]" "$@" && deactivate)
+}
+ytvideo720() {
+    (source ~/venv/ytdlp/bin/activate && yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]" "$@" && deactivate)
+}
+blocks() {
+    (source ~/venv/ytdlp/bin/activate && yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]" -o "S6E%(playlist_index)02d - %(title)s.%(ext)s" "$@" && deactivate)
+}
+
+bcaudio() {
+    (source ~/venv/ytdlp/bin/activate && {
+        yt-dlp --extract-audio --audio-format mp3 -o "%(track_number)s - %(title)s.%(ext)s" "$@"
+        for file in [0-9]*.mp3; do
+            mv "$file" "$(printf "%02d - %s" "${file%% - *}" "${file#* - }")"
+        done
+    } && deactivate)
+}
+
 
 
 # use better editor
