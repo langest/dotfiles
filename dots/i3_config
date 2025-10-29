@@ -1,3 +1,5 @@
+exec --no-startup-id mpv 'Microsoft Windows 95 Startup Sound.m4a'
+
 set $mod Mod1
 #set $term i3-sensible-terminal
 set $term urxvtc
@@ -18,16 +20,20 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- bash -c 'i3lock -i "$(find /home/daniel/pictures/tiling -type f | shuf -n 1)" -t -e -u'
+exec --no-startup-id xss-lock --transfer-sleep-lock -- bash -c 'i3lock -i "$(find /home/daniel/pictures/tiling -type f | shuf -n 1)" -t -e'
 
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 
+exec --no-startup-id picom
+#exec --no-startup-id redshift -O 5000
+exec --no-startup-id dunst
+
 exec --no-startup-id nm-applet
-exec --no-startup-id bash -c "sleep 5 && firefox"
-exec --no-startup-id bash -c "sleep 7 && chromium-browser"
-exec --no-startup-id bash -c "sleep 8 && thunderbird"
-exec --no-startup-id bash -c "sleep 9 && keepassxc"
-exec --no-startup-id bash -c "sleep 11 && signal-desktop"
+#exec --no-startup-id bash -c "sleep 5 && firefox"
+exec --no-startup-id bash -c "sleep 3 && chromium"
+exec --no-startup-id bash -c "sleep 4 && thunderbird"
+exec --no-startup-id bash -c "sleep 6 && keepassxc"
+exec --no-startup-id bash -c "sleep 8 && signal-desktop"
 
 # Use signals to refresh status
 set $refresh_i3status pkill i3_status -SIGUSR1
@@ -38,7 +44,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id $script_home/change_volume.sh 
 # Lower volume
 bindsym XF86AudioLowerVolume exec --no-startup-id $script_home/change_volume.sh decrease && notify-send $notify_duration "Volume Down" "Volume was decreased" && $refresh_i3status
 
-# Mute/Unmute volume
+# Mute
 bindsym XF86AudioMute exec --no-startup-id amixer set Master 0% && $refresh_i3status && notify-send $notify_duration "Volume Mute" "Master volume was set to 0%"
 
 # Mute/Unmute microphone
@@ -50,7 +56,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+#tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+shift+Return exec $term
@@ -100,6 +106,7 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
+set $ws0 "0:null"
 set $ws1 "1:一"
 set $ws2 "2:二"
 set $ws3 "3:三"
@@ -113,6 +120,7 @@ set $ws10 "10:十"
 set $ws11 "11:十一"
 set $ws12 "12:十二"
 
+workspace $ws0 output eDP1
 workspace $ws1 output HDMI2
 workspace $ws2 output HDMI2
 workspace $ws3 output HDMI2
