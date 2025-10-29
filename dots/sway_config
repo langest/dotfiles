@@ -1,0 +1,217 @@
+### --- Variables --- ###
+set $mod Mod1
+set $term foot
+set $script_home ~/repos/dotfiles/scripts
+set $notify_duration 325
+set $launcher "wofi --show drun"
+# set $launcher wofi --show run  # another alternative
+
+font pango:monospace 8
+
+### --- Autostart --- ###
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+exec dex --autostart --environment sway
+
+exec mako
+
+# Keyboard config (caps as ctrl)
+input * {
+     xkb_options ctrl:nocaps
+}
+
+# Network + Apps
+exec nm-applet --indicator
+
+### --- Volume and Audio --- ###
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 4%+ && notify-send "Volume Up"
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send "Volume Down"
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send "Mute toggled"
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send "Mic mute toggled"
+
+
+### --- Window behavior --- ###
+floating_modifier $mod
+# TODO
+#tiling_drag modifier titlebar
+
+# Terminal
+bindsym $mod+Shift+Return exec $term
+
+# Kill focused window
+bindsym $mod+Shift+c kill
+
+# Launcher
+bindsym $mod+p exec $launcher
+
+# Focus movement
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split modes
+bindsym $mod+v split v
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Fullscreen toggle
+bindsym $mod+f fullscreen toggle
+
+# Floating toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# Parent focus
+bindsym $mod+a focus parent
+
+### --- Workspaces --- ###
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+
+# Example monitor setup — adjust your outputs via `swaymsg -t get_outputs`
+# TODO
+#workspace $ws1 output HDMI-A-2
+#workspace $ws2 output HDMI-A-2
+#workspace $ws3 output HDMI-A-2
+#workspace $ws4 output HDMI-A-2
+#workspace $ws5 output HDMI-A-2
+#workspace $ws6 output HDMI-A-2
+#workspace $ws7 output HDMI-A-1
+#workspace $ws8 output HDMI-A-1
+#workspace $ws9 output HDMI-A-1
+#workspace $ws10 output HDMI-A-1
+#workspace $ws11 output HDMI-A-1
+#workspace $ws12 output HDMI-A-1
+
+# Workspace switching
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+minus workspace $ws11
+bindsym $mod+equal workspace $ws12
+
+# Move container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+underscore move container to workspace $ws11
+bindsym $mod+Shift+plus move container to workspace $ws12
+
+# Restart sway
+bindsym $mod+Shift+r reload
+
+# Exit sway
+bindsym $mod+Shift+Ctrl+q exec "swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swaymsg exit'"
+
+### --- Resize bindings --- ###
+bindsym $mod+Ctrl+Shift+h resize shrink width 8px
+bindsym $mod+Ctrl+Shift+j resize shrink height 8px
+bindsym $mod+Ctrl+Shift+k resize grow height 8px
+bindsym $mod+Ctrl+Shift+l resize grow width 8px
+
+### --- Appearance --- ###
+for_window [class="^.*"] border pixel 1
+
+exec waybar
+#bar {
+#    #status_command i3status
+#    position top
+#    font pango:DejaVu SansMono 9
+#    colors {
+#        background #000000
+#        statusline #ffffff
+#        separator #666666
+#        focused_workspace  #4c7899 #285577 #ffffff
+#        active_workspace   #333333 #5f676a #ffffff
+#        inactive_workspace #333333 #222222 #888888
+#        urgent_workspace   #2f343a #900000 #ffffff
+#    }
+#}
+
+input "2:10:TPPS/2_Elan_TrackPoint" {
+    accel_profile flat
+    pointer_accel 0.2
+}
+
+input "1922:27:-_GameBall" {
+    accel_profile flat
+    pointer_accel -0.6
+}
+
+bindsym $mod+Tab workspace back_and_forth
+
+# Gaps (requires sway-gaps)
+smart_gaps on
+gaps inner 4
+
+### --- Scripts / shortcuts --- ###
+bindsym $mod+Shift+w exec bash $script_home/wallpaper.sh
+bindsym $mod+Shift+e exec bash $script_home/wallpaper_tiling.sh
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+g exec chromium
+
+# Toggle keyboard layout
+bindsym Ctrl+space exec bash -c "LAYOUT=$(swaymsg -t get_inputs | grep -o 'us\\|se' | head -1); if [ \"$LAYOUT\" = us ]; then swaymsg input '*' xkb_layout se && notify-send 'Switched to SE layout'; else swaymsg input '*' xkb_layout us && notify-send 'Switched to US layout'; fi"
+
+# Screenshot (use grim + slurp)
+bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date +'%Y-%m-%d-%H%M%S').png
+
+# Suspend
+bindsym $mod+Shift+q exec systemctl suspend
+exec_always {
+    swayidle \
+        timeout 600 'swaylock -f -c 000000' \
+        before-sleep 'swaylock -f -c 000000'
+}
+
+# Brightness (Wayland)
+bindsym XF86MonBrightnessUp exec brightnessctl set +10% && notify-send 'Brightness increased'
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && notify-send 'Brightness decreased'
+
+### --- App assignments --- ###
+assign [app_id="thunderbird"] $ws2
+assign [app_id="keepassxc"] $ws3
+assign [app_id="signal"] $ws4
+assign [app_id="discord"] $ws5
+assign [app_id="qbittorrent"] $ws6
+assign [app_id="chromium"] $ws8
+assign [app_id="firefox"] $ws9
+
+#client.focused #ADD8E6 #ADD8E6 #ffffff #2e9ef4
+#client.focused_inactive #ADD8E6 #ADD8E6 #ffffff #2e9ef4
+
+bindsym $mod+b bar mode toggle
+
