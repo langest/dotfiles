@@ -36,6 +36,11 @@ bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ $vol_ste
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t $notify_duration 'Mute toggled'
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send -t $notify_duration 'Mic mute toggled'
 
+# --- Screen brightness ---
+set $brightness_step 10%
+bindsym XF86MonBrightnessUp exec brightnessctl set +$brightness_step && notify-send -t $notify_duration 'Brightness +'
+bindsym XF86MonBrightnessDown exec brightnessctl set $brightness_step- && notify-send -t $notify_duration 'Brightness -'
+
 ### --- Window behavior --- ###
 floating_modifier $mod
 bindsym $mod+Shift+Return exec $term
