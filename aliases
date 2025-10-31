@@ -74,9 +74,6 @@ ytvideo() {
 ytvideo720() {
     (source ~/venv/ytdlp/bin/activate && yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]" "$@" && deactivate)
 }
-blocks() {
-    (source ~/venv/ytdlp/bin/activate && yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]" -o "S6E%(playlist_index)02d - %(title)s.%(ext)s" "$@" && deactivate)
-}
 
 bcaudio() {
     (source ~/venv/ytdlp/bin/activate && {
