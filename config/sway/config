@@ -1,49 +1,45 @@
+### --- Startup media --- ###
+# TODO
+# exec_always mpv --no-terminal --volume=100 ~/Music/Windows_95_Startup_Sound.m4a
+
 ### --- Variables --- ###
 set $mod Mod1
 set $term foot
 set $script_home ~/repos/dotfiles/scripts
 set $notify_duration 325
 set $launcher "wofi --show drun"
+set $screenshot_dir ~/Pictures/screenshots
 # set $launcher wofi --show run  # another alternative
 
 font pango:monospace 8
 
 ### --- Autostart --- ###
-
+exec_always mkdir -p $screenshot_dir
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-
+exec_always systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK
 exec dex --autostart --environment sway
-
 exec mako
 
 # Keyboard config (caps as ctrl)
 input * {
-     xkb_options ctrl:nocaps
+    xkb_layout us,se
+    xkb_options ctrl:nocaps
 }
 
 # Network + Apps
 exec nm-applet --indicator
 
 ### --- Volume and Audio --- ###
-bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 4%+ && notify-send "Volume Up"
-bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send "Volume Down"
-bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send "Mute toggled"
-bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send "Mic mute toggled"
-
+set $vol_step 5%
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ $vol_step+ && notify-send -t $notify_duration 'Volume Up'
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ $vol_step- && notify-send -t $notify_duration 'Volume Down'
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t $notify_duration 'Mute toggled'
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send -t $notify_duration 'Mic mute toggled'
 
 ### --- Window behavior --- ###
 floating_modifier $mod
-# TODO
-#tiling_drag modifier titlebar
-
-# Terminal
 bindsym $mod+Shift+Return exec $term
-
-# Kill focused window
 bindsym $mod+Shift+c kill
-
-# Launcher
 bindsym $mod+p exec $launcher
 
 # Focus movement
@@ -57,6 +53,12 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# Resize window
+bindsym $mod+Ctrl+Shift+h resize shrink width 128px
+bindsym $mod+Ctrl+Shift+j resize shrink height 128px
+bindsym $mod+Ctrl+Shift+k resize grow height 128px
+bindsym $mod+Ctrl+Shift+l resize grow width 128px
 
 # Split modes
 bindsym $mod+v split v
@@ -127,8 +129,8 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-bindsym $mod+Shift+underscore move container to workspace $ws11
-bindsym $mod+Shift+plus move container to workspace $ws12
+bindsym $mod+Shift+minus move container to workspace $ws11
+bindsym $mod+Shift+equal move container to workspace $ws12
 
 # Restart sway
 bindsym $mod+Shift+r reload
@@ -136,30 +138,10 @@ bindsym $mod+Shift+r reload
 # Exit sway
 bindsym $mod+Shift+Ctrl+q exec "swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swaymsg exit'"
 
-### --- Resize bindings --- ###
-bindsym $mod+Ctrl+Shift+h resize shrink width 8px
-bindsym $mod+Ctrl+Shift+j resize shrink height 8px
-bindsym $mod+Ctrl+Shift+k resize grow height 8px
-bindsym $mod+Ctrl+Shift+l resize grow width 8px
-
 ### --- Appearance --- ###
 for_window [class="^.*"] border pixel 1
 
 exec waybar
-#bar {
-#    #status_command i3status
-#    position top
-#    font pango:DejaVu SansMono 9
-#    colors {
-#        background #000000
-#        statusline #ffffff
-#        separator #666666
-#        focused_workspace  #4c7899 #285577 #ffffff
-#        active_workspace   #333333 #5f676a #ffffff
-#        inactive_workspace #333333 #222222 #888888
-#        urgent_workspace   #2f343a #900000 #ffffff
-#    }
-#}
 
 input "2:10:TPPS/2_Elan_TrackPoint" {
     accel_profile flat
@@ -168,12 +150,11 @@ input "2:10:TPPS/2_Elan_TrackPoint" {
 
 input "1922:27:-_GameBall" {
     accel_profile flat
-    pointer_accel -0.6
+    pointer_accel -0.7
 }
 
 bindsym $mod+Tab workspace back_and_forth
 
-# Gaps (requires sway-gaps)
 smart_gaps on
 gaps inner 4
 
@@ -183,23 +164,29 @@ bindsym $mod+Shift+e exec bash $script_home/wallpaper_tiling.sh
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+g exec chromium
 
-# Toggle keyboard layout
-bindsym Ctrl+space exec bash -c "LAYOUT=$(swaymsg -t get_inputs | grep -o 'us\\|se' | head -1); if [ \"$LAYOUT\" = us ]; then swaymsg input '*' xkb_layout se && notify-send 'Switched to SE layout'; else swaymsg input '*' xkb_layout us && notify-send 'Switched to US layout'; fi"
+# Scratchpad
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+s scratchpad show
 
-# Screenshot (use grim + slurp)
-bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date +'%Y-%m-%d-%H%M%S').png
+# Cycle keyboard layout
+bindsym Ctrl+space exec bash -c 'swaymsg input "*" xkb_switch_layout next; L=$(swaymsg -t get_inputs | grep -m1 -Po "\"xkb_active_layout_name\": *\"\K[^\"]+" || swaymsg -t get_inputs | grep -m1 -Po "\"xkb_layout\": *\"\K[^\"]+"); notify-send -t $notify_duration "Layout: $L"'
+
+# Screenshot (grim + slurp)
+bindsym $mod+Shift+p exec grim -g "$(slurp)" $screenshot_dir/$(date +'%Y-%m-%d-%H%M%S').png
 
 # Suspend
 bindsym $mod+Shift+q exec systemctl suspend
 exec_always {
     swayidle \
-        timeout 600 'swaylock -f -c 000000' \
-        before-sleep 'swaylock -f -c 000000'
+        timeout 540 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' \
+        timeout 600 'systemctl suspend' \
+        before-sleep 'swaylock -f -c 0F0F0F'
 }
 
-# Brightness (Wayland)
-bindsym XF86MonBrightnessUp exec brightnessctl set +10% && notify-send 'Brightness increased'
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && notify-send 'Brightness decreased'
+# Brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set +10% && notify-send -t $notify_duration 'Brightness increased'
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && notify-send -t $notify_duration 'Brightness decreased'
 
 ### --- App assignments --- ###
 assign [app_id="thunderbird"] $ws2
@@ -210,8 +197,4 @@ assign [app_id="qbittorrent"] $ws6
 assign [app_id="chromium"] $ws8
 assign [app_id="firefox"] $ws9
 
-#client.focused #ADD8E6 #ADD8E6 #ffffff #2e9ef4
-#client.focused_inactive #ADD8E6 #ADD8E6 #ffffff #2e9ef4
-
 bindsym $mod+b bar mode toggle
-
