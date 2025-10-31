@@ -20,6 +20,7 @@ export PATH=$PATH:$HOME/.local/bin
 
 # For docker
 export PATH=/usr/bin:$PATH
+export PATH=/usr/sbin:$PATH
 export DOCKER_HOST=unix:///var/run/docker.sock
 
 # Source
