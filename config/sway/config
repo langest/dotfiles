@@ -181,17 +181,12 @@ bindsym $mod+Shift+p exec grim -g "$(slurp)" $screenshot_dir/$(date +'%Y-%m-%d-%
 
 # Suspend
 bindsym $mod+Shift+q exec systemctl suspend
-exec_always {
-    swayidle \
-        timeout 540 'swaymsg "output * dpms off"' \
-            resume 'swaymsg "output * dpms on"' \
-        timeout 600 'systemctl suspend' \
-        before-sleep 'swaylock -f -c 0F0F0F'
-}
-
-# Brightness
-bindsym XF86MonBrightnessUp exec brightnessctl set +10% && notify-send -t $notify_duration 'Brightness increased'
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && notify-send -t $notify_duration 'Brightness decreased'
+# --- Idle (fixed) ---
+exec_always swayidle \
+    timeout 540 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    timeout 600 'systemctl suspend' \
+    before-sleep 'swaylock -f -c 0F0F0F'
 
 ### --- App assignments --- ###
 assign [app_id="thunderbird"] $ws2
