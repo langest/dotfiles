@@ -1,0 +1,135 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "sway/workspaces",
+    "sway/scratchpad",
+    "sway/window"
+  ],
+
+  "modules-center": [
+  ],
+
+  "modules-right": [
+    "wireplumber",
+    "memory",
+    "cpu",
+    "temperature",
+    "sway/language",
+    "battery",
+    "clock",
+    "tray",
+  ],
+
+  "sway/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+      "11": "十一",
+      "12": "十二"
+    },
+    "persistent_workspaces": [
+      "1","2","3","4","5","6","7","8","9","10","11","12"
+    ],
+    "disable-scroll": true,
+    "sort-by-number": true,
+    "active-only": false,
+    "on-click": "swaymsg workspace {name}",
+    "on-click-middle": "swaymsg move container to workspace {name}"
+  },
+
+  "sway/scratchpad": {
+    "format": " {}",
+    "format-empty": "",
+    "tooltip-format": "{}",
+    "on-click": "swaymsg scratchpad show"
+  },
+
+  "sway/window": {
+    "format": "{title}",
+    "max-length": 60
+  },
+
+  "wireplumber": {
+    "format": "{volume}% ",
+    "format-muted": "",
+    "format-source": "{volume}%   {source_volume}% ",
+    "format-source-muted": "{volume}%   {source_volume}% ",
+    "tooltip-format": "Speaker: {volume}%\nMic: {source_volume}%",
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  },
+
+  "memory": {
+    "format": " {used} / {total}",
+    "interval": 5
+  },
+
+  "cpu": {
+    "format": " {usage}% {load}",
+    "interval": 2,
+    "max-length": 20
+  },
+
+  "temperature": {
+    "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C"
+  },
+
+  "sway/language": {
+    "format": "{short}",
+    "tooltip": true,
+    "tooltip-format": "{long} {variant}",
+    "on-click": "swaymsg input '*' xkb_switch_layout next",
+    "on-scroll-up": "swaymsg input '*' xkb_switch_layout next",
+    "on-scroll-down": "swaymsg input '*' xkb_switch_layout next"
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {capacity}% {icon}",
+    "states": {
+      "critical": 15,
+      "warning": 30
+    },
+    "icons": {
+      "default": ["","","","",""]
+    }
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": "{:%Y-%m-%d  %H:%M}",
+    "tooltip": true,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "today": "<b><u>{}</u></b>"
+      }
+    },
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 6
+  }
+}
