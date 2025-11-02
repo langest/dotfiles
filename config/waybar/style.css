@@ -21,7 +21,7 @@
   }
 
   /* Backgrounds */
-  #wireplumber,
+  #pulseaudio,
   #memory,
   #cpu,
   #temperature,
@@ -44,7 +44,7 @@
 
   /* Shared pill styling */
   #workspaces,
-  #wireplumber,
+  #pulseaudio,
   #memory,
   #cpu,
   #temperature,
@@ -59,7 +59,7 @@
     margin: 0 4px;
   }
 
-  #wireplumber,
+  #pulseaudio,
   #memory,
   #cpu,
   #temperature,
@@ -137,13 +137,9 @@
   }
 
   /* Audio */
-  #wireplumber { min-width: 70px; }
-  #wireplumber.muted {
-    color: @fg_dim;
-    text-decoration: line-through;
-  }
+  #pulseaudio { min-width: 70px; }
 
-  #wireplumber:hover {
+  #pulseaudio:hover {
     background: @bg_accent;
   }
 

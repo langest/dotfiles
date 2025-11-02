@@ -11,7 +11,7 @@
   ],
 
   "modules-right": [
-    "wireplumber",
+    "pulseaudio",
     "memory",
     "cpu",
     "temperature",
@@ -59,15 +59,23 @@
     "max-length": 60
   },
 
-  "wireplumber": {
-    "format": "{volume}% ",
-    "format-muted": "",
-    "format-source": "{volume}%   {source_volume}% ",
-    "format-source-muted": "{volume}%   {source_volume}% ",
-    "tooltip-format": "Speaker: {volume}%\nMic: {source_volume}%",
+  "pulseaudio": {
     "scroll-step": 5,
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    "format": "{icon}  {volume}% {format_source}",
+    "format-bluetooth": " {icon} {volume}% {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "foot -a pw-top pw-top"
   },
 
   "memory": {
