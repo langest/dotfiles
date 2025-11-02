@@ -210,6 +210,17 @@
 
   #tray > * { padding: 0 2px; }
 
+  /* Menu surface */
+  menu,
+  .menu,
+  .popup,
+  .window-frame.csd.popup,
+  .background.popup {
+    background: @bg_alt;
+    color: @fg;
+    border: 1px solid @bg_accent;
+  }
+
   /* Tooltip */
   tooltip {
     background: @bg_alt;
