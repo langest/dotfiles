@@ -1,24 +1,36 @@
-/* Color definitions (GTK 3 style) */
-  @define-color bg        #111418;
-  @define-color bg_alt    #1b2026;
-  @define-color bg_accent #222b34;
-  @define-color accent    #3aa5ff;
+  /* Color definitions */
+  @define-color bg         #111418;
+  @define-color bg_alt     #1b2026;
+  @define-color bg_accent  #222b34;
+  @define-color accent     #1c5a8c;
   @define-color accent_alt #5fb3ff;
-  @define-color warn      #e0a840;
-  @define-color crit      #d94c3d;
-  @define-color ok        #4caf50;
-  @define-color fg        #d9dde2;
-  @define-color fg_dim    #8b929b;
-  @define-color fg_alt    #b5bcc4;
+  @define-color warn       #e0a840;
+  @define-color crit       #d94c3d;
+  @define-color ok         #4caf50;
+  @define-color fg         #d9dde2;
+  @define-color fg_dim     #8b929b;
+  @define-color fg_alt     #b5bcc4;
 
   * {
-    background-color: @bg;
     color: @fg;
     border: none;
     border-radius: 0;
     min-height: 0;
     font-family: 'CaskaydiaMono Nerd Font';
     font-size: 12px;
+  }
+
+  /* Backgrounds */
+  #wireplumber,
+  #memory,
+  #cpu,
+  #temperature,
+  #language,
+  #battery,
+  #clock,
+  #tray,
+  #scratchpad {
+    background: @bg;
   }
 
   window#waybar {
@@ -40,13 +52,11 @@
   #battery,
   #clock,
   #tray,
-  #scratchpad,
-  #window {
+  #scratchpad {
     background: @bg;
     border-radius: 6px;
     padding: 0;
     margin: 0 4px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.55);
   }
 
   #wireplumber,
@@ -57,22 +67,22 @@
   #battery,
   #clock,
   #tray,
-  #scratchpad,
-  #window {
+  #scratchpad {
     padding: 3px 9px;
   }
 
+  /* Window title */
   #window {
-    color: @fg_alt;
+    background: @bg;
+    border-radius: 6px;
+    padding: 3px 9px;
+    margin: 0 4px;
   }
 
-  #window.empty {
+  window#waybar.empty #window {
     background: transparent;
-    box-shadow: none;
     padding: 0;
-    margin: 0;
   }
-
   /* Workspaces */
   #workspaces {
     padding: 0 4px;
@@ -114,12 +124,16 @@
   #workspaces button.empty.persistent { opacity: 0.35; }
 
   /* Scratchpad */
-  #scratchpad { color: @accent_alt; }
+  #scratchpad { color: @fg; }
   #scratchpad.empty {
     background: transparent;
     padding: 0;
-    box-shadow: none;
     margin-right: 0;
+  }
+
+  /* Highlight only when clickable */
+  #scratchpad:not(.empty):hover {
+    background: @bg_accent;
   }
 
   /* Audio */
@@ -127,11 +141,13 @@
   #wireplumber.muted {
     color: @fg_dim;
     text-decoration: line-through;
-    background: @bg_alt;
+  }
+
+  #wireplumber:hover {
+    background: @bg_accent;
   }
 
   /* Memory / CPU / Temp */
-  #memory, #cpu, #temperature { background: @bg_alt; }
   #cpu { min-width: 110px; }
 
   #cpu.high {
@@ -152,31 +168,22 @@
     letter-spacing: 0.5px;
   }
 
+  #language:hover {
+    background: @bg_accent;
+  }
+
   /* Battery */
   #battery {
     min-width: 80px;
-    transition: background 120ms, color 120ms;
-  }
-
-  #battery.charging {
-    background: @accent;
-    color: #0e1419;
-    font-weight: 600;
-  }
-
-  #battery.plugged {
-    background: @accent_alt;
-    color: #0e1419;
   }
 
   #battery.warning:not(.charging):not(.plugged) {
-    background: @warn;
-    color: #111;
+    color: @warn;
   }
 
   #battery.critical:not(.charging):not(.plugged) {
-    background: @crit;
-    color: #fff;
+    color: @crit;
+    font-weight: 600;
     animation: battery-pulse 1.2s ease-in-out infinite;
   }
 
@@ -192,32 +199,16 @@
     letter-spacing: 0.4px;
   }
 
+  #clock:hover {
+    background: @bg_accent;
+  }
+
   /* Tray */
   #tray {
     padding-right: 4px;
   }
 
   #tray > * { padding: 0 2px; }
-
-  /* Hover / active generic */
-  #wireplumber:hover,
-  #memory:hover,
-  #cpu:hover,
-  #temperature:hover,
-  #language:hover,
-  #battery:hover,
-  #clock:hover,
-  #scratchpad:not(.empty):hover {
-    background: @bg_accent;
-  }
-
-  #wireplumber:active,
-  #memory:active,
-  #cpu:active,
-  #temperature:active,
-  #language:active,
-  #battery:active,
-  #clock:active,
 
   /* Tooltip */
   tooltip {
