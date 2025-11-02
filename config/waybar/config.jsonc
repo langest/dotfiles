@@ -3,11 +3,11 @@
   "position": "top",
   "modules-left": [
     "sway/workspaces",
-    "sway/scratchpad",
-    "sway/window"
+    "sway/scratchpad"
   ],
 
   "modules-center": [
+    "sway/window"
   ],
 
   "modules-right": [
@@ -17,8 +17,8 @@
     "temperature",
     "sway/language",
     "battery",
-    "clock",
     "tray",
+    "clock"
   ],
 
   "sway/workspaces": {
@@ -76,24 +76,22 @@
   },
 
   "cpu": {
-    "format": " {usage}% {load}",
+    "format": " {usage}% : {load}",
     "interval": 2,
-    "max-length": 20
+    "max-length": 12
   },
 
   "temperature": {
     "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
     "critical-threshold": 80,
-    "format": " {temperatureC}°C"
+    "format": " {temperatureC}°C",
+    "tooltip": false
   },
 
   "sway/language": {
-    "format": "{short}",
-    "tooltip": true,
-    "tooltip-format": "{long} {variant}",
-    "on-click": "swaymsg input '*' xkb_switch_layout next",
-    "on-scroll-up": "swaymsg input '*' xkb_switch_layout next",
-    "on-scroll-down": "swaymsg input '*' xkb_switch_layout next"
+    "format": " {flag}",
+    "tooltip": false,
+    "on-click": "swaymsg input '*' xkb_switch_layout next"
   },
 
   "battery": {
@@ -110,26 +108,27 @@
     }
   },
 
+  "tray": {
+    "icon-size": 16,
+    "spacing": 6
+  },
+
   "clock": {
     "interval": 60,
-    "format": "{:%Y-%m-%d  %H:%M}",
+    "format": "{:%Y-%m-%d w%V %a %H:%M}",
     "tooltip": true,
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
-      "weeks-pos": "right",
+      "weeks-pos": "left",
       "on-scroll": 1,
       "format": {
         "today": "<b><u>{}</u></b>"
       }
     },
+
     "actions": {
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     }
-  },
-
-  "tray": {
-    "icon-size": 16,
-    "spacing": 6
   }
 }
