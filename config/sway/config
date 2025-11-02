@@ -67,6 +67,7 @@ bindsym $mod+Ctrl+Shift+l resize grow width 128px
 
 # Split modes
 bindsym $mod+v split v
+bindsym $mod+b split h
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -197,4 +198,4 @@ assign [app_id="qbittorrent"] $ws6
 assign [app_id="chromium"] $ws8
 assign [app_id="firefox"] $ws9
 
-bindsym $mod+b bar mode toggle
+#bindsym $mod+b bar mode toggle
