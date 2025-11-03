@@ -131,6 +131,14 @@
     margin-right: 0;
   }
 
+  /* mpris */
+  #mpris {
+    background: @bg;
+    border-radius: 6px;
+    padding: 3px 9px;
+    margin: 0 4px;
+  }
+
   /* Highlight only when clickable */
   #scratchpad:not(.empty):hover {
     background: @bg_accent;
@@ -170,7 +178,7 @@
 
   /* Battery */
   #battery {
-    min-width: 80px;
+    min-width: 40px;
   }
 
   #battery.warning:not(.charging):not(.plugged) {
@@ -201,7 +209,6 @@
 
   /* Tray */
   #tray {
-    padding-right: 4px;
   }
 
   #tray > * { padding: 0 2px; }

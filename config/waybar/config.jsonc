@@ -3,7 +3,8 @@
   "position": "top",
   "modules-left": [
     "sway/workspaces",
-    "sway/scratchpad"
+    "sway/scratchpad",
+    "mpris"
   ],
 
   "modules-center": [
@@ -52,6 +53,24 @@
     "format-empty": "",
     "tooltip-format": "{}",
     "on-click": "swaymsg scratchpad show"
+  },
+
+  "mpris": {
+    "format": "{player_icon} {artist} - {title}",
+    "format-paused": " {artist} - {title}",
+    "format-stopped": "",
+    "player-icons": {
+      "default": "",
+      "spotify": "",
+      "mpv": "",
+      "mpd": "",
+      "firefox": "",
+      "chromium": ""
+    },
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl -a stop",
+    "max-length": 40,
   },
 
   "sway/window": {
