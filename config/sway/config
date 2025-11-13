@@ -172,8 +172,8 @@ smart_gaps on
 gaps inner 4
 
 ### --- Scripts / shortcuts --- ###
-bindsym $mod+Shift+w exec bash $script_home/wallpaper.sh
-bindsym $mod+Shift+e exec bash $script_home/wallpaper_tiling.sh
+bindsym $mod+Shift+w exec bash $script_home/t16/wallpaper.sh
+bindsym $mod+Shift+e exec bash $script_home/t16/wallpaper_tiling.sh
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+g exec chromium
 
