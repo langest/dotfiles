@@ -31,8 +31,8 @@ exec nm-applet --indicator
 
 ### --- Volume and Audio --- ###
 set $vol_step 5%
-bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ $vol_step+ && notify-send -t $notify_duration 'Volume Up'
-bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ $vol_step- && notify-send -t $notify_duration 'Volume Down'
+bindsym XF86AudioRaiseVolume exec bash $script_home/t16/volume_step.sh up 5 && notify-send -t $notify_duration 'Volume Up'
+bindsym XF86AudioLowerVolume exec bash $script_home/t16/volume_step.sh down 5 && notify-send -t $notify_duration 'Volume Down'
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t $notify_duration 'Mute toggled'
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send -t $notify_duration 'Mic mute toggled'
 
