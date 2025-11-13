@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+pkill -x swaybg 2>/dev/null
 
 LANDSCAPE_DIR="$HOME/pictures/wps"
 PORTRAIT_DIR="$HOME/pictures/wps_portrait"
@@ -17,6 +18,6 @@ swaymsg -t get_outputs | jq -c '.[] | select(.active)' | while read -r output; d
 
   WALLPAPER=$(find "$DIR" -type f | shuf -n 1)
   if [ -n "$WALLPAPER" ]; then
-    swaybg -o "$NAME" -i "$WALLPAPER" 2>/dev/null &
+    swaybg -o "$NAME" -i "$WALLPAPER" -m fill 2>/dev/null &
   fi
 done
