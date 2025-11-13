@@ -81,7 +81,12 @@ bindsym $mod+space focus mode_toggle
 # Parent focus
 bindsym $mod+a focus parent
 
-### --- Workspaces --- ###
+
+### --- Workspaces and monitor --- ###
+bindsym XF86Display exec bash $script_home/t16/monitor_toggle.sh
+output DP-2 transform 270
+
+set $ws0 "0"
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -95,20 +100,22 @@ set $ws10 "10"
 set $ws11 "11"
 set $ws12 "12"
 
-# Example monitor setup — adjust your outputs via `swaymsg -t get_outputs`
-# TODO
-#workspace $ws1 output HDMI-A-2
-#workspace $ws2 output HDMI-A-2
-#workspace $ws3 output HDMI-A-2
-#workspace $ws4 output HDMI-A-2
-#workspace $ws5 output HDMI-A-2
-#workspace $ws6 output HDMI-A-2
-#workspace $ws7 output HDMI-A-1
-#workspace $ws8 output HDMI-A-1
-#workspace $ws9 output HDMI-A-1
-#workspace $ws10 output HDMI-A-1
-#workspace $ws11 output HDMI-A-1
-#workspace $ws12 output HDMI-A-1
+# Internal eDP-1
+# Middle HDMI-A-1
+# Left DP-2
+workspace $ws1 output DP-2
+workspace $ws2 output DP-2
+workspace $ws3 output DP-2
+workspace $ws4 output DP-2
+workspace $ws5 output DP-2
+workspace $ws6 output DP-2
+workspace $ws7 output HDMI-A-1
+workspace $ws8 output HDMI-A-1
+workspace $ws9 output HDMI-A-1
+workspace $ws10 output HDMI-A-1
+workspace $ws11 output HDMI-A-1
+workspace $ws12 output HDMI-A-1
+workspace $ws0 output eDP-1
 
 # Workspace switching
 bindsym $mod+1 workspace $ws1
