@@ -41,6 +41,9 @@ set $brightness_step 10%
 bindsym XF86MonBrightnessUp exec brightnessctl set +$brightness_step && notify-send -t $notify_duration 'Brightness +'
 bindsym XF86MonBrightnessDown exec brightnessctl set $brightness_step- && notify-send -t $notify_duration 'Brightness -'
 
+# Transparency toggle
+bindsym $mod+shift+t exec bash $script_home/t16/toggle_transparency.sh
+
 ### --- Window behavior --- ###
 floating_modifier $mod
 bindsym $mod+Shift+Return exec $term
