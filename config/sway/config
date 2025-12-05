@@ -199,7 +199,7 @@ exec_always swayidle \
     timeout 540 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     timeout 600 'systemctl suspend' \
-    before-sleep 'swaylock -f -c 0F0F0F'
+    before-sleep 'swaylock -f -c 847674'
 
 ### --- App assignments --- ###
 assign [app_id="thunderbird"] $ws2
