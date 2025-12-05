@@ -15,7 +15,7 @@
     "pulseaudio",
     "memory",
     "cpu",
-    "temperature",
+    // "temperature",
     "sway/language",
     "battery",
     "tray",
@@ -109,12 +109,12 @@
     "max-length": 12
   },
 
-  "temperature": {
-    "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
-    "critical-threshold": 80,
-    "format": " {temperatureC}°C",
-    "tooltip": false
-  },
+  // "temperature": {
+  //   "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
+  //   "critical-threshold": 80,
+  //   "format": " {temperatureC}°C",
+  //   "tooltip": false
+  // },
 
   "sway/language": {
     "format": " {flag}",
