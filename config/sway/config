@@ -29,6 +29,8 @@ input * {
 # Network + Apps
 exec nm-applet --indicator
 
+exec gammastep -l 61.971667:16.343917
+
 ### --- Volume and Audio --- ###
 set $vol_step 5%
 bindsym XF86AudioRaiseVolume exec bash $script_home/t16/volume_step.sh up 5 && notify-send -t $notify_duration 'Volume Up'
