@@ -31,6 +31,9 @@ alias gbrcln='~/repos/dotfiles/scripts/git_branch_clean.sh'
 # intellij
 #alias intellij='mullvad-exclude /opt/intellij/idea-IU-243.22562.218/bin/idea'
 
+# AI
+alias cx='/home/daniel/repos/ai-agent/openAi/codex/launch_codex.sh'
+
 # docker
 #alias dc='docker compose'
 
