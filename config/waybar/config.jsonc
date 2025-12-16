@@ -71,7 +71,7 @@
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl -a stop",
-    "max-length": 40,
+    "max-length": 40
   },
 
   "sway/window": {
