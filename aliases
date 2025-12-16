@@ -32,7 +32,11 @@ alias gbrcln='~/repos/dotfiles/scripts/git_branch_clean.sh'
 #alias intellij='mullvad-exclude /opt/intellij/idea-IU-243.22562.218/bin/idea'
 
 # docker
-alias dc='docker compose'
+#alias dc='docker compose'
+
+# podman
+alias dc='podman compose'
+alias pc='podman compose'
 
 # change wp
 alias setwp='feh --bg-fill'
