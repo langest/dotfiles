@@ -61,6 +61,7 @@ PACKAGES=(
   chromium
   cups
   curl
+  darktable
   dosfstools
   evince
   feh
