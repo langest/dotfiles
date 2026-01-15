@@ -210,6 +210,6 @@ assign [app_id="signal"] $ws4
 assign [app_id="discord"] $ws5
 assign [app_id="qbittorrent"] $ws6
 assign [app_id="chromium"] $ws8
-assign [app_id="firefox"] $ws9
+#assign [app_id="firefox"] $ws9
 
 #bindsym $mod+b bar mode toggle
