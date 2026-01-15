@@ -23,6 +23,9 @@ export PATH=/usr/bin:$PATH
 export PATH=/usr/sbin:$PATH
 export DOCKER_HOST=unix:///var/run/docker.sock
 
+# SSH Agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/openssh_agent"
+
 # Source
 source ~/repos/dotfiles/aliases
 #source /usr/share/git/completion/git-completion.bash
