@@ -129,6 +129,7 @@ PACKAGES=(
   tlp
   tmux
   traceroute
+  tree
   tuigreet
   unzip
   usbutils
