@@ -32,14 +32,17 @@ alias gbrcln='~/repos/dotfiles/scripts/git_branch_clean.sh'
 #alias intellij='mullvad-exclude /opt/intellij/idea-IU-243.22562.218/bin/idea'
 
 # AI
-alias cx='/home/daniel/repos/ai-agent/openAi/codex/launch_codex.sh'
+alias cx='/home/daniel/repos/ai-agent/docker-agent/codex-docker.sh'
+
+# dropbox
+alias mntdropvault='gocryptfs "$HOME/Dropbox/dropvault.cipher" "$HOME/dropvault"'
 
 # docker
-#alias dc='docker compose'
+alias dc='docker compose'
 
 # podman
-alias dc='podman compose'
-alias pc='podman compose'
+#alias dc='podman compose'
+#alias pc='podman compose'
 
 # change wp
 alias setwp='feh --bg-fill'
@@ -75,12 +78,9 @@ ytplay() {
 ytaudio() {
     (source ~/venv/ytdlp/bin/activate && yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" "$@" && deactivate)
 }
-ytvideo() {
-    (source ~/venv/ytdlp/bin/activate && yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]" "$@" && deactivate)
-}
-ytvideo720() {
-    (source ~/venv/ytdlp/bin/activate && yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]" "$@" && deactivate)
-}
+alias ytvideo='yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
+alias ytvideo720='yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]"'
+alias ytvideo1080='yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
 
 bcaudio() {
     (source ~/venv/ytdlp/bin/activate && {
