@@ -135,6 +135,7 @@ workspace $ws11 output HDMI1
 workspace $ws12 output HDMI1
 
 # switch to workspace
+bindsym $mod+grave workspace $ws0
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -233,4 +234,3 @@ client.focused #ADD8E6 #ADD8E6 #ffffff #2e9ef4
 client.focused_inactive #ADD8E6 #ADD8E6 #ffffff #2e9ef4
 
 bindsym $mod+b bar mode toggle
-

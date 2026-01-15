@@ -124,6 +124,7 @@ workspace $ws12 output HDMI-A-1
 workspace $ws0 output eDP-1
 
 # Workspace switching
+bindsym $mod+grave workspace $ws0
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
