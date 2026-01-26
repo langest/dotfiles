@@ -52,6 +52,7 @@ if [[ "$(id -u)" -ne 0 ]]; then
 fi
 
 PACKAGES=(
+  7zip
   adduser
   alsa-utils
   audacity
