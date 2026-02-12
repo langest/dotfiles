@@ -35,6 +35,9 @@ alias gbrcln='~/repos/dotfiles/scripts/git_branch_clean.sh'
 alias cx='/home/daniel/repos/ai-agent/docker-agent/codex-docker.sh'
 alias cxq='/home/daniel/repos/ai-agent/qemu-agent/scripts/boot-debian-13.sh'
 
+# theming
+alias theme='bash ~/repos/dotfiles/scripts/theme/theme.sh'
+
 # dropbox
 alias mntdropvault='gocryptfs "$HOME/Dropbox/dropvault.cipher" "$HOME/dropvault"'
 
