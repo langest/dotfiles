@@ -8,8 +8,8 @@ set $term foot
 set $script_home ~/repos/dotfiles/scripts
 set $notify_duration 325
 set $launcher "wofi --show drun"
-set $screenshot_dir ~/Pictures/screenshots
-set $lock_cmd swaylock -f -c 847674
+set $screenshot_dir ~/pictures/screenshots
+set $lock_cmd bash $script_home/theme/lock.sh
 # set $launcher wofi --show run  # another alternative
 
 font pango:monospace 8
