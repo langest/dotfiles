@@ -44,3 +44,7 @@
 * `$mod+Tab`        - Next tab
 * `$mod+Shift+Tab`  - Previous tab
 
+## sway
+* `$mod+grave`      - Switch to workspace 0
+* `$mod+Shift+grave`- Move container to workspace 0
+* Workspace number binds use `bindcode` for layout-independent keys (see `config/sway/config`)
