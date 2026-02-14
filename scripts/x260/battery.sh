@@ -10,22 +10,36 @@ if [[ $# -ne 1 ]] || [[ "$EUID" -ne 0 ]]; then
     exit 1
 fi
 
+# Function to safely set charge if battery exists
+set_battery_charge() {
+    local start=$1
+    local stop=$2
+    local bat=$3
+
+    if [ -d "/sys/class/power_supply/$bat" ]; then
+        echo "Configuring $bat: Start $start%, Stop $stop%"
+        tlp setcharge $start $stop $bat
+    else
+        echo "Battery $bat not detected, skipping."
+    fi
+}
+
 # Main logic based on the command
 case "$1" in
     reset)
-        echo "Setting default values"
-        tlp setcharge 0 100 BAT0
-        tlp setcharge 0 100 BAT1
+        echo "Setting default values (100% both)"
+        set_battery_charge 0 100 BAT0
+        set_battery_charge 0 100 BAT1
         ;;
     balanced)
         echo "Setting battery-friendly values"
-        tlp setcharge 38 45 BAT0
-        tlp setcharge 38 55 BAT1
+        set_battery_charge 38 45 BAT0
+        set_battery_charge 38 55 BAT1
         ;;
     hot)
         echo "Charging external battery some extra"
-        tlp setcharge 38 45 BAT0
-        tlp setcharge 71 73 BAT1
+        set_battery_charge 38 45 BAT0
+        set_battery_charge 71 73 BAT1
         ;;
     status)
         tlp-stat -b
