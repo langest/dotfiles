@@ -63,27 +63,27 @@ User-installed themes also live in the same path.
 Theme commands:
 
 ```bash
-scripts/theme/theme.sh list
-scripts/theme/theme.sh set tokyo-night
-scripts/theme/theme.sh current
-scripts/theme/theme.sh refresh
-scripts/theme/theme.sh install <git-repo-url>
-scripts/theme/theme.sh update
-scripts/theme/theme.sh remove <theme-name>
-scripts/theme/theme.sh btop
-scripts/theme/theme.sh foot
-scripts/theme/theme.sh nvim
-scripts/theme/theme.sh wofi
-scripts/theme/theme.sh wallpaper
-scripts/theme/theme.sh swaylock
-scripts/theme/theme.sh lock
+scripts/theme/theme list
+scripts/theme/theme set tokyo-night
+scripts/theme/theme current
+scripts/theme/theme refresh
+scripts/theme/theme install <git-repo-url>
+scripts/theme/theme update
+scripts/theme/theme remove <theme-name>
+scripts/theme/theme btop
+scripts/theme/theme foot
+scripts/theme/theme nvim
+scripts/theme/theme wofi
+scripts/theme/theme wallpaper
+scripts/theme/theme swaylock
+scripts/theme/theme lock
 ```
 
 Notes:
 - `OMARCHY_PATH` can be set to use a different Omarchy checkout.
 - Default Omarchy checkout path is `~/repos/omarchy` when `OMARCHY_PATH` is unset.
-- Use `scripts/theme/theme.sh sync` to resync built-in local themes into `~/.config/omarchy/themes`.
-- `scripts/theme/theme.sh update` pulls official themes from `~/repos/omarchy` (or `OMARCHY_PATH`) and updates cloned third-party themes.
+- Use `scripts/theme/theme sync` to resync built-in local themes into `~/.config/omarchy/themes`.
+- `scripts/theme/theme update` pulls official themes from `~/repos/omarchy` (or `OMARCHY_PATH`) and updates cloned third-party themes.
 - Security validation is centralized in `scripts/theme/lib/validate.sh`.
 - Theme apply imports only allowlisted theme data (`colors.toml` and `backgrounds/*` images).
 - `waybar.css`, `btop.theme`, and `chromium.theme` are always generated from validated colors; raw theme files for these are never used.
@@ -98,3 +98,5 @@ Notes:
 - btop theme is copied to `~/.config/btop/themes/omarchy.theme` and selected in `~/.config/btop/btop.conf`.
 - Chromium color policy is applied from the active theme when `/etc/chromium/policies/managed` is writable.
 - Firefox theme overlay is applied to profiles in `~/.mozilla/firefox` via `chrome/omarchy-theme.css`.
+- Firefox vertical tabs/sidebar background is themed via `chrome/omarchy-theme.css`.
+- Firefox must be restarted to fully apply `userChrome.css` changes after `theme set`/`theme refresh`.
