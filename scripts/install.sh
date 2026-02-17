@@ -141,6 +141,7 @@ PACKAGES=(
   silversearcher-ag
   sudo
   sway
+  swaybg
   swayidle
   swaylock
   tar
