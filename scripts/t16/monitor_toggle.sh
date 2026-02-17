@@ -9,7 +9,6 @@ INT="eDP-1"
 LAYOUT_SCRIPT="$HOME/repos/dotfiles/scripts/t16/monitor_layout.sh"
 LOCKFILE="/tmp/monitor_toggle.lock"
 
-need_jq() { command -v jq >/dev/null 2>&1 || { echo "Error: jq required." >&2; exit 1; }; }
 need_layout() { [[ -x "$LAYOUT_SCRIPT" ]] || { echo "Error: layout script missing: $LAYOUT_SCRIPT" >&2; exit 1; }; }
 
 with_lock() {
@@ -45,7 +44,6 @@ assign_all() {
   swaymsg move workspace to output "$INT"
 }
 
-need_jq
 need_layout
 with_lock
 
