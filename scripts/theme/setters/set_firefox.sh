@@ -22,6 +22,11 @@ if ! foreground="$(get_color_from_toml "$colors_file" foreground 2>/dev/null)"; 
 fi
 
 found_profile=false
+firefox_running=false
+if pgrep -x firefox >/dev/null 2>&1; then
+  firefox_running=true
+fi
+
 for profile in "$HOME"/.mozilla/firefox/*.default* "$HOME"/.mozilla/firefox/*.dev-edition-default; do
   [[ -d "$profile" ]] || continue
   found_profile=true
@@ -38,6 +43,14 @@ for profile in "$HOME"/.mozilla/firefox/*.default* "$HOME"/.mozilla/firefox/*.de
   --omarchy-accent: $accent;
   --omarchy-background: $background;
   --omarchy-foreground: $foreground;
+  --toolbar-bgcolor: var(--omarchy-background) !important;
+  --toolbar-color: var(--omarchy-foreground) !important;
+  --lwt-accent-color: var(--omarchy-background) !important;
+  --lwt-text-color: var(--omarchy-foreground) !important;
+  --sidebar-background-color: var(--omarchy-background) !important;
+  --sidebar-text-color: var(--omarchy-foreground) !important;
+  --tab-selected-bgcolor: var(--omarchy-accent) !important;
+  --tab-selected-textcolor: var(--omarchy-foreground) !important;
 }
 
 #navigator-toolbox,
@@ -48,8 +61,23 @@ for profile in "$HOME"/.mozilla/firefox/*.default* "$HOME"/.mozilla/firefox/*.de
   color: var(--omarchy-foreground) !important;
 }
 
-.tab-background[selected="true"] {
+#sidebar-box,
+#sidebar,
+#sidebar-header,
+#sidebar-main,
+#tabbrowser-tabs[orient="vertical"],
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab {
+  background: var(--omarchy-background) !important;
+  color: var(--omarchy-foreground) !important;
+}
+
+.tab-background[selected="true"],
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[selected="true"] .tab-background {
   background: var(--omarchy-accent) !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:hover .tab-background {
+  background: color-mix(in srgb, var(--omarchy-accent) 35%, var(--omarchy-background)) !important;
 }
 EOF
 
@@ -77,3 +105,6 @@ if ! $found_profile; then
 fi
 
 echo "Firefox theme updated"
+if $firefox_running; then
+  echo "Firefox is running: restart Firefox to fully apply chrome CSS changes"
+fi

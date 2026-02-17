@@ -2,10 +2,11 @@
 set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cmd_name="$(basename "$0")"
 
 usage() {
-  cat <<'EOF'
-Usage: theme.sh <command> [args]
+  cat <<EOF
+Usage: $cmd_name <command> [args]
 
 Commands:
   list
@@ -33,12 +34,30 @@ fi
 
 case "$cmd" in
   list) "$script_dir/list.sh" "$@" ;;
-  set) "$script_dir/set.sh" "$@" ;;
+  set)
+    if [[ $# -eq 0 ]]; then
+      echo "Usage: $cmd_name set <theme-name>" >&2
+      exit 1
+    fi
+    "$script_dir/set.sh" "$@"
+    ;;
   current) "$script_dir/current.sh" "$@" ;;
   refresh) "$script_dir/refresh.sh" "$@" ;;
-  install) "$script_dir/install.sh" "$@" ;;
+  install)
+    if [[ $# -eq 0 ]]; then
+      echo "Usage: $cmd_name install <git-repo-url>" >&2
+      exit 1
+    fi
+    "$script_dir/install.sh" "$@"
+    ;;
   update) "$script_dir/update.sh" "$@" ;;
-  remove) "$script_dir/remove.sh" "$@" ;;
+  remove)
+    if [[ $# -eq 0 ]]; then
+      echo "Usage: $cmd_name remove <theme-name>" >&2
+      exit 1
+    fi
+    "$script_dir/remove.sh" "$@"
+    ;;
   sync) "$script_dir/sync_builtin.sh" "$@" ;;
   btop) "$script_dir/setters/set_btop.sh" "$@" ;;
   foot) "$script_dir/setters/set_foot.sh" "$@" ;;

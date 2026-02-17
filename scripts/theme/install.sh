@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [[ -z "${1:-}" ]]; then
-  echo "Usage: install.sh <git-repo-url>"
+  echo "Usage: $(basename "$0") <git-repo-url>"
   exit 1
 fi
 

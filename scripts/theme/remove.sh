@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [[ -z "${1:-}" ]]; then
-  echo "Usage: remove.sh <theme-name>"
+  echo "Usage: $(basename "$0") <theme-name>"
   exit 1
 fi
 
