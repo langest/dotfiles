@@ -57,7 +57,7 @@ systemctl --user enable --now pipewire pipewire-pulse wireplumber
 This repo now uses one canonical theme path:
 - `~/.config/omarchy/themes`
 
-Built-in themes from local `omarchy-repo/themes` are synced as symlinks into that path.
+Built-in themes from local `~/repos/omarchy/themes` are synced as symlinks into that path.
 User-installed themes also live in the same path.
 
 Theme commands:
@@ -74,18 +74,24 @@ scripts/theme/theme.sh btop
 scripts/theme/theme.sh foot
 scripts/theme/theme.sh nvim
 scripts/theme/theme.sh wofi
+scripts/theme/theme.sh wallpaper
 scripts/theme/theme.sh swaylock
 scripts/theme/theme.sh lock
 ```
 
 Notes:
 - `OMARCHY_PATH` can be set to use a different Omarchy checkout.
+- Default Omarchy checkout path is `~/repos/omarchy` when `OMARCHY_PATH` is unset.
 - Use `scripts/theme/theme.sh sync` to resync built-in local themes into `~/.config/omarchy/themes`.
+- `scripts/theme/theme.sh update` pulls official themes from `~/repos/omarchy` (or `OMARCHY_PATH`) and updates cloned third-party themes.
 - Security validation is centralized in `scripts/theme/lib/validate.sh`.
+- Theme apply imports only allowlisted theme data (`colors.toml` and `backgrounds/*` images).
+- `waybar.css`, `btop.theme`, and `chromium.theme` are always generated from validated colors; raw theme files for these are never used.
 - Active theme state is stored in `~/.config/omarchy/current/theme` and `~/.config/omarchy/current/theme.name`.
 - Waybar style imports `~/.config/omarchy/current/theme/waybar.css` with local fallback colors when no theme is active.
 - Sway border highlighting is generated to `~/.config/omarchy/current/theme/sway.theme` and applied via `swaymsg`.
 - Sway lock color is generated to `~/.config/omarchy/current/theme/swaylock.color`, copied to `~/.config/swaylock/color`, and used by `scripts/theme/lock.sh`.
+- Theme wallpapers in `~/.config/omarchy/current/theme/backgrounds` are applied by `scripts/theme/setters/set_wallpaper.sh` (called by `theme set` and available as `theme wallpaper`), using different images per active output when multiple images exist.
 - Foot theme is copied to `~/.config/foot/omarchy-theme.ini` and included by `config/foot/foot.ini`.
 - Neovim theme overrides are copied to `~/.config/nvim/omarchy-theme.vim` and sourced from `config/nvim/init.vim`.
 - Wofi theme is copied to `~/.config/wofi/style.css`.
