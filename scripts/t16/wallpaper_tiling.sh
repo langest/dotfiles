@@ -12,9 +12,6 @@ pkill -x swaybg 2>/dev/null || true
 WALLPAPER=$(find "$TILING_DIR" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) | shuf -n 1)
 [ -n "${WALLPAPER:-}" ] || { echo "No images" >&2; exit 1; }
 
-# Require ImageMagick.
-command -v convert >/dev/null || { echo "ImageMagick convert not found" >&2; exit 1; }
-
 read -r TOTAL_W TOTAL_H < <(total_bbox)
 
 # Build full tiled canvas.
