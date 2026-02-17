@@ -37,9 +37,15 @@ case "$1" in
         set_battery_charge 38 55 BAT1
         ;;
     hot)
+        if [ ! -d "/sys/class/power_supply/BAT1" ] && [ -d "/sys/class/power_supply/BAT0" ]; then
+            echo "Single battery detected: Charging internal battery extra"
+            # Single battery mode: charge BAT0 higher
+            set_battery_charge 71 80 BAT0
+        else
         echo "Charging external battery some extra"
         set_battery_charge 38 45 BAT0
         set_battery_charge 71 73 BAT1
+        fi
         ;;
     status)
         tlp-stat -b
