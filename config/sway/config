@@ -162,6 +162,7 @@ bindsym $mod+Shift+Ctrl+q exec "swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swa
 
 ### --- Appearance --- ###
 for_window [class="^.*"] border pixel 1
+exec_always bash $script_home/theme/setters/set_sway.sh
 
 exec waybar
 

@@ -82,6 +82,9 @@ let g:gruvbox_italic = 1
 "set bg=light
 set bg=dark
 colorscheme gruvbox
+if filereadable(expand('~/.config/nvim/omarchy-theme.vim'))
+  source ~/.config/nvim/omarchy-theme.vim
+endif
 
 " Ignore case when searching
 set ignorecase

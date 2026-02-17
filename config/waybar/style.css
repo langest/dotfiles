@@ -1,4 +1,4 @@
-  /* Color definitions */
+  /* Fallback colors when no Omarchy theme has been applied yet */
   @define-color bg         #111418;
   @define-color bg_alt     #1b2026;
   @define-color bg_accent  #222b34;
@@ -10,6 +10,9 @@
   @define-color fg         #d9dde2;
   @define-color fg_dim     #8b929b;
   @define-color fg_alt     #b5bcc4;
+
+  /* Omarchy-compatible theme overrides (generated from colors.toml) */
+  @import "../omarchy/current/theme/waybar.css";
 
   * {
     color: @fg;
