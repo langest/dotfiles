@@ -72,6 +72,7 @@ scripts/theme/theme update
 scripts/theme/theme remove <theme-name>
 scripts/theme/theme btop
 scripts/theme/theme foot
+scripts/theme/theme mako
 scripts/theme/theme nvim
 scripts/theme/theme wofi
 scripts/theme/theme wallpaper
@@ -86,7 +87,7 @@ Notes:
 - `scripts/theme/theme update` pulls official themes from `~/repos/omarchy` (or `OMARCHY_PATH`) and updates cloned third-party themes.
 - Security validation is centralized in `scripts/theme/lib/validate.sh`.
 - Theme apply imports only allowlisted theme data (`colors.toml` and `backgrounds/*` images).
-- `waybar.css`, `btop.theme`, and `chromium.theme` are always generated from validated colors; raw theme files for these are never used.
+- `waybar.css`, `btop.theme`, `chromium.theme`, and `mako.config` are always generated from validated colors; raw theme files for these are never used.
 - Active theme state is stored in `~/.config/omarchy/current/theme` and `~/.config/omarchy/current/theme.name`.
 - Waybar style imports `~/.config/omarchy/current/theme/waybar.css` with local fallback colors when no theme is active.
 - Sway border highlighting is generated to `~/.config/omarchy/current/theme/sway.theme` and applied via `swaymsg`.
@@ -95,6 +96,7 @@ Notes:
 - Foot theme is copied to `~/.config/foot/omarchy-theme.ini` and included by `config/foot/foot.ini`.
 - Neovim theme overrides are copied to `~/.config/nvim/omarchy-theme.vim` and sourced from `config/nvim/init.vim`.
 - Wofi theme is copied to `~/.config/wofi/style.css`.
+- Mako notification theme is copied to `~/.config/mako/config` and reloaded via `makoctl reload` when available.
 - btop theme is copied to `~/.config/btop/themes/omarchy.theme` and selected in `~/.config/btop/btop.conf`.
 - Chromium color policy is applied from the active theme when `/etc/chromium/policies/managed` is writable.
 - Firefox theme overlay is applied to profiles in `~/.mozilla/firefox` via `chrome/omarchy-theme.css`.
