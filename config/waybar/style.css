@@ -3,6 +3,7 @@
   @define-color bg_alt     #1b2026;
   @define-color bg_accent  #222b34;
   @define-color accent     #1c5a8c;
+  @define-color accent_text #d9dde2;
   @define-color accent_alt #5fb3ff;
   @define-color warn       #e0a840;
   @define-color crit       #d94c3d;
@@ -93,7 +94,7 @@
   }
 
   #workspaces button {
-    color: @fg_dim;
+    color: @fg;
     background: transparent;
     padding: 3px 8px;
     border-radius: 4px;
@@ -101,19 +102,37 @@
     font-weight: 500;
   }
 
+  #workspaces button label {
+    color: @fg;
+  }
+
   #workspaces button:hover {
     background: @bg_accent;
     color: @fg;
   }
 
-  #workspaces button.focused {
+  #workspaces button:hover label {
+    color: @fg;
+  }
+
+  #workspaces button.focused,
+  #workspaces button.active {
     background: @accent;
-    color: #0c1116;
+    color: @accent_text;
     font-weight: 600;
   }
 
-  #workspaces button.visible:not(.focused) {
+  #workspaces button.focused label,
+  #workspaces button.active label {
+    color: @accent_text;
+  }
+
+  #workspaces button.visible:not(.focused):not(.active) {
     background: @bg_accent;
+    color: @fg;
+  }
+
+  #workspaces button.visible:not(.focused):not(.active) label {
     color: @fg;
   }
 
@@ -122,8 +141,13 @@
     color: #fff;
   }
 
+  #workspaces button.urgent label {
+    color: #fff;
+  }
+
   #workspaces button.persistent { opacity: 0.55; }
-  #workspaces button.focused.persistent { opacity: 1; }
+  #workspaces button.focused.persistent,
+  #workspaces button.active.persistent { opacity: 1; }
   #workspaces button.empty.persistent { opacity: 0.35; }
 
   /* Scratchpad */

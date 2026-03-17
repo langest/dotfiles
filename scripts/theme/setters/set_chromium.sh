@@ -2,7 +2,7 @@
 set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$script_dir/../lib/validate.sh"
+source "$script_dir/../lib/render.sh"
 
 theme_dir="$HOME/.config/omarchy/current/theme"
 colors_file="$theme_dir/colors.toml"

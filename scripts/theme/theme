@@ -19,6 +19,7 @@ Commands:
   sync
   btop
   foot
+  mako
   nvim
   wofi
   wallpaper
@@ -61,6 +62,7 @@ case "$cmd" in
   sync) "$script_dir/sync_builtin.sh" "$@" ;;
   btop) "$script_dir/setters/set_btop.sh" "$@" ;;
   foot) "$script_dir/setters/set_foot.sh" "$@" ;;
+  mako) "$script_dir/setters/set_mako.sh" "$@" ;;
   nvim) "$script_dir/setters/set_nvim.sh" "$@" ;;
   wofi) "$script_dir/setters/set_wofi.sh" "$@" ;;
   wallpaper) "$script_dir/setters/set_wallpaper.sh" "$@" ;;

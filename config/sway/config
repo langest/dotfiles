@@ -30,7 +30,7 @@ input * {
 # Network + Apps
 exec nm-applet --indicator
 
-exec gammastep -l 61.971667:16.343917
+exec bash -c 'source "$HOME/repos/dotfiles/scripts/shared/display_defaults.sh"; exec gammastep -l "$GAMMASTEP_LOCATION"'
 
 ### --- Volume and Audio --- ###
 set $vol_step 5%
@@ -38,6 +38,20 @@ bindsym XF86AudioRaiseVolume exec bash $script_home/t16/volume_step.sh up 5 && n
 bindsym XF86AudioLowerVolume exec bash $script_home/t16/volume_step.sh down 5 && notify-send -t $notify_duration 'Volume Down'
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t $notify_duration 'Mute toggled'
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send -t $notify_duration 'Mic mute toggled'
+
+# Numpad media controls prefer Spotify and fall back to the first active MPRIS player.
+bindsym $mod+KP_4 exec bash $script_home/shared/media_numpad.sh previous
+bindsym $mod+KP_Left exec bash $script_home/shared/media_numpad.sh previous
+bindsym $mod+KP_5 exec bash $script_home/shared/media_numpad.sh play-pause
+bindsym $mod+KP_Begin exec bash $script_home/shared/media_numpad.sh play-pause
+bindsym $mod+KP_6 exec bash $script_home/shared/media_numpad.sh next
+bindsym $mod+KP_Right exec bash $script_home/shared/media_numpad.sh next
+bindsym $mod+KP_8 exec bash $script_home/shared/media_numpad.sh volume-up
+bindsym $mod+KP_Up exec bash $script_home/shared/media_numpad.sh volume-up
+bindsym $mod+KP_2 exec bash $script_home/shared/media_numpad.sh volume-down
+bindsym $mod+KP_Down exec bash $script_home/shared/media_numpad.sh volume-down
+bindsym $mod+KP_0 exec bash $script_home/shared/media_numpad.sh pause-all
+bindsym $mod+KP_Insert exec bash $script_home/shared/media_numpad.sh pause-all
 
 # --- Screen brightness ---
 set $brightness_step 10%
@@ -192,7 +206,7 @@ bindsym $mod+Shift+s move scratchpad
 bindsym $mod+s scratchpad show
 
 # Cycle keyboard layout
-bindsym Ctrl+space exec bash -c 'swaymsg input "*" xkb_switch_layout next; L=$(swaymsg -t get_inputs | grep -m1 -Po "\"xkb_active_layout_name\": *\"\K[^\"]+" || swaymsg -t get_inputs | grep -m1 -Po "\"xkb_layout\": *\"\K[^\"]+"); notify-send -t $notify_duration "Layout: $L"'
+bindsym Ctrl+space exec swaymsg input "*" xkb_switch_layout next
 
 # Screenshot (grim + slurp)
 bindsym $mod+Shift+p exec grim -g "$(slurp)" $screenshot_dir/$(date +'%Y-%m-%d-%H%M%S').png

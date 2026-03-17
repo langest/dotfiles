@@ -110,6 +110,7 @@ PACKAGES=(
   jq
   keepassxc
   krita
+  libnotify-bin
   libvirglrenderer-dev
   libvirglrenderer1
   mesa-utils

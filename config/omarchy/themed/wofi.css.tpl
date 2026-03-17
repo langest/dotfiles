@@ -23,7 +23,7 @@ window {
 
 #entry:selected {
   background-color: {{ accent }};
-  color: {{ background }};
+  color: {{ accent_text }};
 }
 
 #text {

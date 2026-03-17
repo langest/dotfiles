@@ -12,5 +12,6 @@ fi
 
 find "$themes_path" -mindepth 1 -maxdepth 1 \( -type d -o -type l \) -printf '%f\n' | sort -u | while read -r name; do
   [[ -n "$name" ]] || continue
+  [[ -f "$themes_path/$name/colors.toml" ]] || continue
   echo "$name"
 done

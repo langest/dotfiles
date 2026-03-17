@@ -16,16 +16,6 @@ is_rgb_triplet() {
   (( r <= 255 && g <= 255 && b <= 255 ))
 }
 
-hex_to_rgb() {
-  local hex="${1#\#}"
-  printf "%d,%d,%d" "0x${hex:0:2}" "0x${hex:2:2}" "0x${hex:4:2}"
-}
-
-rgb_to_hex() {
-  local rgb="$1"
-  printf '#%02x%02x%02x' ${rgb//,/ }
-}
-
 validate_colors_toml_strict() {
   local colors_file="$1"
   local line
@@ -54,27 +44,6 @@ get_color_from_toml() {
   [[ -n "$value" ]] || return 1
   is_hex_color "$value" || return 1
   printf '%s\n' "$value"
-}
-
-build_sed_substitutions_from_toml() {
-  local colors_file="$1"
-  local sed_script="$2"
-  local line key value
-
-  validate_colors_toml_strict "$colors_file" || return 1
-
-  while IFS= read -r line || [[ -n "$line" ]]; do
-    [[ -n "${line//[[:space:]]/}" ]] || continue
-    [[ "$line" =~ ^[[:space:]]*# ]] && continue
-
-    [[ "$line" =~ ^[[:space:]]*([A-Za-z0-9_]+)[[:space:]]*=[[:space:]]*\"(#[0-9A-Fa-f]{6})\" ]] || continue
-    key="${BASH_REMATCH[1]}"
-    value="${BASH_REMATCH[2]}"
-
-    printf 's|{{ %s }}|%s|g\n' "$key" "$value" >>"$sed_script"
-    printf 's|{{ %s_strip }}|%s|g\n' "$key" "${value#\#}" >>"$sed_script"
-    printf 's|{{ %s_rgb }}|%s|g\n' "$key" "$(hex_to_rgb "$value")" >>"$sed_script"
-  done <"$colors_file"
 }
 
 is_safe_sway_theme_line() {

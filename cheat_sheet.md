@@ -48,3 +48,9 @@
 * `$mod+grave`      - Switch to workspace 0
 * `$mod+Shift+grave`- Move container to workspace 0
 * Workspace number binds use `bindcode` for layout-independent keys (see `config/sway/config`)
+* `$mod+KP_4` / `$mod+KP_Left`   - Previous track
+* `$mod+KP_5` / `$mod+KP_Begin`  - Play/pause
+* `$mod+KP_6` / `$mod+KP_Right`  - Next track
+* `$mod+KP_8` / `$mod+KP_Up`     - Player volume up
+* `$mod+KP_2` / `$mod+KP_Down`   - Player volume down
+* `$mod+KP_0` / `$mod+KP_Insert` - Pause all active players

@@ -2,10 +2,11 @@
 @define-color bg_alt {{ color0 }};
 @define-color bg_accent {{ color8 }};
 @define-color accent {{ accent }};
+@define-color accent_text {{ accent_text }};
 @define-color accent_alt {{ color12 }};
 @define-color warn {{ color11 }};
 @define-color crit {{ color1 }};
 @define-color ok {{ color2 }};
 @define-color fg {{ foreground }};
-@define-color fg_dim {{ color7 }};
+@define-color fg_dim {{ color8 }};
 @define-color fg_alt {{ color15 }};

@@ -17,4 +17,12 @@ mkdir -p "$themes_dir"
 rm -rf "$theme_path"
 
 git clone --depth 1 "$repo_url" "$theme_path"
+
+if [[ ! -f "$theme_path/colors.toml" ]]; then
+  rm -rf "$theme_path"
+  echo "Theme install failed: missing colors.toml in repo root"
+  echo "Expected: <repo>/colors.toml (plus optional backgrounds/)"
+  exit 1
+fi
+
 "$script_dir/set.sh" "$theme_name"

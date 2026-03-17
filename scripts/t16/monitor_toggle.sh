@@ -8,6 +8,14 @@ EXT2="HDMI-A-1"
 INT="eDP-1"
 LAYOUT_SCRIPT="$HOME/repos/dotfiles/scripts/t16/monitor_layout.sh"
 LOCKFILE="/tmp/monitor_toggle.lock"
+DEFAULTS_SCRIPT="$(dirname "$0")/../shared/display_defaults.sh"
+
+if [[ -r "$DEFAULTS_SCRIPT" ]]; then
+  # shellcheck disable=SC1091
+  source "$DEFAULTS_SCRIPT"
+fi
+
+: "${GAMMASTEP_LOCATION:=61.304722:16.334889}"
 
 need_layout() { [[ -x "$LAYOUT_SCRIPT" ]] || { echo "Error: layout script missing: $LAYOUT_SCRIPT" >&2; exit 1; }; }
 
@@ -29,6 +37,20 @@ wait_for_active() {
   while [[ $(is_active "$out") != "true" && $tries -gt 0 ]]; do
     sleep 0.1; tries=$((tries-1))
   done
+}
+
+restart_gammastep() {
+  command -v gammastep >/dev/null 2>&1 || return 0
+  pkill -x gammastep || true
+  nohup gammastep -l "$GAMMASTEP_LOCATION" >/dev/null 2>&1 &
+}
+
+restart_waybar() {
+  command -v waybar >/dev/null 2>&1 || return 0
+
+  # Why: output hotplug can leave stale per-output bar surfaces even with one process.
+  pkill -x waybar || true
+  nohup waybar >/dev/null 2>&1 &
 }
 
 assign_all() {
@@ -53,6 +75,8 @@ active2=$(is_active "$EXT2")
 if [[ "$active1" == "true" || "$active2" == "true" ]]; then
   swaymsg output "$EXT1" disable
   swaymsg output "$EXT2" disable
+  restart_gammastep
+  restart_waybar
   notify-send -t 300 "External monitors: OFF"
 else
   swaymsg output "$EXT1" enable
@@ -61,5 +85,7 @@ else
   wait_for_active "$EXT2"
   bash "$LAYOUT_SCRIPT"
   assign_all
+  restart_gammastep
+  restart_waybar
   notify-send -t 300 "External monitors: ON"
 fi

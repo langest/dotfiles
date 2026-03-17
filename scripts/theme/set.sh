@@ -8,7 +8,7 @@ fi
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$script_dir/lib/validate.sh"
+source "$script_dir/lib/render.sh"
 
 current_theme_path="$HOME/.config/omarchy/current/theme"
 next_theme_path="$HOME/.config/omarchy/current/next-theme"
@@ -82,6 +82,7 @@ echo "$theme_name" >"$theme_name_path"
 "$script_dir/setters/set_foot.sh"
 "$script_dir/setters/set_nvim.sh"
 "$script_dir/setters/set_wofi.sh"
+"$script_dir/setters/set_mako.sh"
 "$script_dir/setters/set_btop.sh"
 "$script_dir/setters/set_wallpaper.sh"
 "$script_dir/setters/set_chromium.sh"
