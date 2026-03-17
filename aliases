@@ -32,8 +32,8 @@ alias gbrcln='~/repos/dotfiles/scripts/git_branch_clean.sh'
 #alias intellij='mullvad-exclude /opt/intellij/idea-IU-243.22562.218/bin/idea'
 
 # AI
-alias cx='/home/daniel/repos/ai-agent/docker-agent/codex-docker.sh'
-alias cxq='/home/daniel/repos/ai-agent/qemu-agent/scripts/boot-debian-13.sh'
+alias cx='$HOME/repos/ai-agent/docker-agent/codex-docker.sh'
+alias cxq='$HOME/repos/ai-agent/qemu-agent/scripts/boot-debian-13.sh'
 
 # theming
 alias theme='~/repos/dotfiles/scripts/theme/theme'
