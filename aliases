@@ -32,7 +32,7 @@ alias gbrcln='~/repos/dotfiles/scripts/git_branch_clean.sh'
 #alias intellij='mullvad-exclude /opt/intellij/idea-IU-243.22562.218/bin/idea'
 
 # AI
-alias cx='$HOME/repos/ai-agent/docker-agent/codex-docker.sh'
+alias cx='$HOME/repos/ai-agent/docker-codex/codex-docker.sh'
 alias cxq='$HOME/repos/ai-agent/qemu-agent/scripts/boot-debian-13.sh'
 
 # theming
@@ -76,10 +76,29 @@ alias remake='make clean; make'
 alias urxvtmerge='xrdb -merge ~/.Xresources; killall urxvtd'
 
 # ytdl
-alias ytaudio='yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" "$@"'
-alias ytvideo='yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
-alias ytvideo720='yt-dlp -f "bestvideo[height<=720]+bestaudio/best[height<=720]"'
-alias ytvideo1080='yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
+ytdock() {
+    "$HOME/repos/dotfiles/docker-utils/ytdlp" "$@"
+}
+
+dlvideo() {
+    ytdock "$@"
+}
+
+ytaudio() {
+    ytdock --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" "$@"
+}
+
+ytvideo() {
+    ytdock -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]" "$@"
+}
+
+ytvideo720() {
+    ytdock -f "bestvideo[height<=720]+bestaudio/best[height<=720]" "$@"
+}
+
+ytvideo1080() {
+    ytdock -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]" "$@"
+}
 
 bcaudio() {
     (source ~/venv/ytdlp/bin/activate && {
