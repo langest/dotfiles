@@ -1,0 +1,128 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  local prog_name
+  prog_name="$(basename "$0")"
+
+  cat <<EOF
+Usage: ${prog_name} [--rebuild] [<yt-dlp args...>]
+
+Runs yt-dlp in a Debian-based Docker container.
+Downloads are staged in a local temp directory and moved to
+$HOME/videos/download after a successful run.
+
+Options:
+  --rebuild  Rebuild the Docker image without cache before running.
+             If no yt-dlp args are given, exit after the rebuild.
+  --help     Show this help.
+
+Example:
+  ${prog_name} --rebuild https://www.youtube.com/watch?v=dQw4w9WgXcQ
+EOF
+}
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+dockerfile="$script_dir/ytdlp.Dockerfile"
+image_name="dotfiles/ytdlp:trixie"
+downloads_dir="$HOME/videos/download"
+rebuild=false
+staging_dir=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --rebuild)
+      rebuild=true
+      shift
+      ;;
+    --help|-h)
+      usage
+      exit 0
+      ;;
+    --)
+      shift
+      break
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+if ! command -v docker >/dev/null 2>&1; then
+  echo "error: docker not found in PATH" >&2
+  exit 1
+fi
+
+if [[ ! -d "$downloads_dir" ]]; then
+  echo "error: downloads directory does not exist: $downloads_dir" >&2
+  exit 1
+fi
+
+cleanup() {
+  if [[ -n "$staging_dir" && -d "$staging_dir" ]]; then
+    rm -rf "$staging_dir"
+  fi
+}
+
+trap cleanup EXIT
+
+staging_dir="$(mktemp -d "${TMPDIR:-/tmp}/ytdlp.XXXXXX")"
+
+build_image() {
+  local build_args=(
+    build
+    -t "$image_name"
+    -f "$dockerfile"
+    "$script_dir"
+  )
+
+  if $rebuild; then
+    build_args=(
+      build
+      --no-cache
+      -t "$image_name"
+      -f "$dockerfile"
+      "$script_dir"
+    )
+  fi
+
+  docker "${build_args[@]}"
+}
+
+if $rebuild || ! docker image inspect "$image_name" >/dev/null 2>&1; then
+  build_image
+fi
+
+if [[ $# -eq 0 ]]; then
+  if $rebuild; then
+    exit 0
+  fi
+
+  usage >&2
+  exit 1
+fi
+
+docker_args=(
+  run
+  --rm
+  --user "$(id -u):$(id -g)"
+  -v "$staging_dir:/downloads"
+  -w /downloads
+)
+
+if [[ -t 0 && -t 1 ]]; then
+  docker_args+=(-it)
+fi
+
+docker_args+=("$image_name")
+
+docker_args+=("$@")
+
+docker "${docker_args[@]}"
+
+shopt -s dotglob nullglob
+staged_items=("$staging_dir"/*)
+if (( ${#staged_items[@]} > 0 )); then
+  mv -- "${staged_items[@]}" "$downloads_dir"/
+fi
